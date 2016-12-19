@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <title>修改菜单</title>
+    <style type="text/css" media="all">
+        @import url(../css/wimpCommon.css);
+        @import url(../css/chChannel.css);
+        @import url(../css/chRight.css);
+    </style>
+
+    <script type="text/javascript" src="../js/jquery.js"></script>
+
+    <script type="text/javascript" src="../js/GridPanel.js"></script>
+
+    <script type="text/javascript" src="../js/System/EditMenu.js"></script>
+
+</head>
+<body>
+    <div class="rightBox">
+        <div class="rTitle1" id="row1">
+            <h2 class="rightT1">
+                修改菜单</h2>
+        </div>
+        <div class="rTitle2" id="row2">
+            <!--<span class="spq" id="btnHelp" title="帮助">
+            </span>-->
+            <div class="rTliner">
+            </div>
+            <div class="rTBotr">
+                <a style="cursor: pointer" id="aDelete" title="删除本菜单">删除本级菜单</a></div>
+            <div class="rTBotr">
+                <a style="cursor: pointer" id="aCreate" title="添加子菜单">添加子级菜单</a></div>
+            <div id="dvTop" class="rTBotr">
+                <a style="cursor: pointer" id="aBack" title="返回上级菜单">返回上级菜单</a></div>
+            <div class="rTBotr"><a id="DelShortcut" style="cursor:pointer;display:none;" title="删除快捷菜单">删除快捷菜单</a></div>
+            <div class="rTBotr"><a id="AddShortcut" style="cursor:pointer;display:none;" title="添加快捷菜单">添加快捷菜单</a></div>
+            
+            <h2 id="menuPath" class="rightT2">
+            </h2>
+        </div>
+        <div class="rightText" id="row3">
+            <table border="0" cellspacing="1" class="listIB">
+                <tbody class="tb1">
+                    <tr>
+                        <th class="th03">
+                            菜单名称：
+                        </th>
+                        <th class="th02">
+                            <input type="text" class="inp02" id="txtName" maxlength="50" />
+                        </th>
+                        <th class="th05">
+                            显示给用户的菜单名称
+                        </th>
+                    </tr>
+                    <tr>
+                        <td class="td01">
+                            左侧导航页链接：
+                        </td>
+                        <td>
+                            <input id="txtLeftUrl" class="inp02" maxlength="200" type="text" />
+                        </td>
+                        <td class="td02">
+                            显示在系统左侧导航页的链接地址
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td01">
+                            右侧主页面链接：
+                        </td>
+                        <td>
+                            <input id="txtRightUrl" class="inp02" maxlength="200" type="text" />
+                        </td>
+                        <td class="td02">
+                            显示在系统右侧主操作区域的链接地址
+                        </td>
+                    </tr>
+                    <tr id="trKeyCode" style="display: none">
+                        <td class="td01">
+                            系统快捷键：
+                        </td>
+                        <td>
+                            <select style="width: 210px" id="dplstKeyCode">
+                                <option value="65">A</option>
+                                <option value="66">B</option>
+                                <option value="67">C</option>
+                                <option value="68">D</option>
+                                <option value="69">E</option>
+                                <option value="70">F</option>
+                                <option value="71">G</option>
+                                <option value="72">H</option>
+                                <option value="73">I</option>
+                                <option value="74">J</option>
+                                <option value="75">K</option>
+                                <option value="76">L</option>
+                                <option value="77">M</option>
+                                <option value="78">N</option>
+                                <option value="79">O</option>
+                                <option value="80">P</option>
+                                <option value="81">Q</option>
+                                <option value="82">R</option>
+                                <option value="83">S</option>
+                                <option value="84">T</option>
+                                <option value="85">U</option>
+                                <option value="86">V</option>
+                                <option value="87">W</option>
+                                <option value="88">X</option>
+                                <option value="89">Y</option>
+                                <option value="90">Z</option>
+                            </select>
+                        </td>
+                        <td class="td02">
+                            系统快捷操作按键
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td01">
+                            是否显示：
+                        </td>
+                        <td>
+                            <input value="1" name="rdbtnEnabled" type="radio" id="rdbtnEnabled_0" /><label for="rdbtnEnabled_0">显示</label>&nbsp;&nbsp;&nbsp;&nbsp;<input
+                                value="0" name="rdbtnEnabled" type="radio" id="rdbtnEnabled_1" /><label for="rdbtnEnabled_1">不显示</label>
+                        </td>
+                        <td class="td02">
+                            在系统中是否显示该菜单
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td01">
+                            子菜单继承显示模式：
+                        </td>
+                        <td>
+                            <input value="1" name="rdbtnEnabledMode" type="radio" id="rdbtnEnabledMode_0" /><label
+                                for="rdbtnEnabledMode_0">继承父级显示模式</label>&nbsp;&nbsp;&nbsp;&nbsp;<input value="0"
+                                    name="rdbtnEnabledMode" checked="checked" type="radio" id="rdbtnEnabledMode_1" /><label
+                                        for="rdbtnEnabledMode_1">不继承父级显示模式</label>
+                        </td>
+                        <td class="td02">
+                            若子菜单继承父级显示模式，父级显示模式的更改会同步更改所有子菜单的显示模式。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td01">
+                            所属角色：
+                        </td>
+                        <td colspan="2" id="roleList">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td01">
+                            子菜单继承角色关系：
+                        </td>
+                        <td>
+                            <input value="1" name="rdbtnRoleMode" type="radio" id="rdbtnRoleMode_0" /><label
+                                for="rdbtnRoleMode_0">继承父级角色关系</label>&nbsp;&nbsp;&nbsp;&nbsp;<input value="0" name="rdbtnRoleMode"
+                                    checked="checked" type="radio" id="rdbtnRoleMode_1" /><label for="rdbtnRoleMode_1">不继承父级角色关系</label>
+                        </td>
+                        <td class="td02">
+                            若子菜单继承父级角色关系，父级角色关系的更改会同步更改所有子菜单的角色关系。
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="ichFootIm">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="listBIfoot">
+                    <tr>
+                        <td>
+                            <div class="Bot">
+                                <a id="aEdit" style="cursor: pointer" title="修改">修&nbsp;&nbsp;&nbsp;&nbsp;改</a></div>
+                        </td>
+                        <td>
+                            <div class="Bot">
+                                <a id="aReset" style="cursor: pointer" title="重置">重&nbsp;&nbsp;&nbsp;&nbsp;置</a></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="rTitle3" id="row4">
+        </div>
+        <div class="rTitle2" id="row5">
+            <div class="rTBotr">
+                <a id="delMenu" href="#">删除选中菜单项</a></div>
+            <div class="rTBotr">
+                <a id="saveOrder" href="#">保存选中排序码</a></div>           
+            <h2 class="rightT2">
+                子级菜单列表</h2>
+        </div>
+        <div class="rightText" id="menuList">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <message id="1">
+    <title>当前请求</title>
+    <body>操作成功</body>
+  </message>
+  <message id="0">
+    <title>当前请求</title>
+    <body>操作失败</body>
+  </message>
+
+  <message id="10001">
+    <title>系统菜单</title>
+    <body>修改成功</body>
+  </message>
+  <message id="10002">
+    <title>系统菜单添加失败</title>
+    <body>　原因：父级菜单不存在。</body>
+  </message>
+  <message id="10003">
+    <title>系统菜单添加失败</title>
+    <body>　原因：菜单快捷键值只能为0或者位于65-90中。</body>
+  </message>
+  <message id="10004">
+    <title>系统菜单添加失败</title>
+    <body>　原因：菜单名称及左右导航链接地址不能为空。</body>
+  </message>
+  <message id="10005">
+    <title>系统菜单</title>
+    <body>添加成功</body>
+  </message>
+  <message id="10006">
+    <title>系统菜单删除失败</title>
+    <body>　原因：菜单不存在。</body>
+  </message>
+  <message id="10007">
+    <title>系统菜单</title>
+    <body>删除完毕</body>
+  </message>
+  <message id="10008">
+    <title>系统菜单修改失败</title>
+    <body>　原因：菜单不存在。</body>
+  </message>
+  <message id="10009">
+    <title>系统菜单修改失败</title>
+    <body>　原因：菜单快捷键值只能为0或者位于65-90中。</body>
+  </message>
+  <message id="10010">
+    <title>系统菜单修改失败</title>
+    <body>　原因：菜单名称及左右导航链接地址不能为空。</body>
+  </message>
+  <message id="10011">
+    <title>系统菜单</title>
+    <body>排序码已更改</body>
+  </message>
+  <message id="10012">
+    <title>系统菜单</title>
+    <body>显示属性已更改</body>
+  </message>
+  <message id="10013">
+    <title>系统参数添加失败</title>
+    <body>　原因：系统参数名称不能为空。</body>
+  </message>
+  <message id="10014">
+    <title>系统参数</title>
+    <body>保存成功</body>
+  </message>
+  <message id="10015">
+    <title>系统参数</title>
+    <body>删除成功</body>
+  </message>
+  <message id="10016">
+    <title>系统参数删除失败</title>
+    <body>　原因：系统参数不存在。</body>
+  </message>
+  <message id="10017">
+    <title>系统用户创建失败</title>
+    <body>　原因：用户名已存在。</body>
+  </message>
+  <message id="10018">
+    <title>系统用户创建失败</title>
+    <body>　原因：数据库操作出错。</body>
+  </message>
+  <message id="10019">
+    <title>系统用户</title>
+    <body>创建成功</body>
+  </message>
+  <message id="10020">
+    <title>系统用户创建失败</title>
+    <body>　原因：用户名不正确。</body>
+  </message>
+  <message id="10021">
+    <title>系统用户创建失败</title>
+    <body>　原因：密码不能为空。</body>
+  </message>
+  <message id="10022">
+    <title>用户信息修改失败</title>
+    <body>　原因：用户不存在。</body>
+  </message>
+  <message id="10023">
+    <title>用户信息</title>
+    <body>修改成功</body>
+  </message>
+  <message id="10024">
+    <title>用户删除失败</title>
+    <body>　原因：用户不存在。</body>
+  </message>
+  <message id="10025">
+    <title>用户信息</title>
+    <body>删除成功</body>
+  </message>
+  <message id="10026">
+    <title>系统角色创建失败</title>
+    <body>　原因：角色名称不正确。</body>
+  </message>
+  <message id="10027">
+    <title>系统角色创建失败</title>
+    <body>　原因：角色已存在。</body>
+  </message>
+  <message id="10028">
+    <title>系统角色</title>
+    <body>创建成功</body>
+  </message>
+  <message id="10029">
+    <title>系统角色删除失败</title>
+    <body>　原因：角色名称不正确。</body>
+  </message>
+  <message id="10030">
+    <title>系统角色删除失败</title>
+    <body>　原因：角色不存在。</body>
+  </message>
+  <message id="10031">
+    <title>系统角色</title>
+    <body>删除成功</body>
+  </message>
+  <message id="10032">
+    <title>系统角色修改失败</title>
+    <body>　原因：角色名称不正确或角色已存在。</body>
+  </message>
+  <message id="10033">
+    <title>系统角色</title>
+    <body>修改成功</body>
+  </message>
+  <message id="10034">
+    <title>指定用户</title>
+    <body>已分配到当前角色</body>
+  </message>
+  <message id="10035">
+    <title>系统角色</title>
+    <body>已从指定用户中移除</body>
+  </message>
+
+  <message id="11001">
+    <title>监控服务器添加失败</title>
+    <body>　原因：服务器名称、IP、描述信息及监控项目不能为空。</body>
+  </message>
+  <message id="11002">
+    <title>监控服务器添加失败</title>
+    <body>　原因：服务器IP已存在。</body>
+  </message>
+  <message id="11003">
+    <title>监控服务器</title>
+    <body>添加成功</body>
+  </message>
+  <message id="11004">
+    <title>监控服务器删除失败</title>
+    <body>　原因：服务器信息不存在。</body>
+  </message>
+  <message id="11005">
+    <title>监控服务器</title>
+    <body>删除成功</body>
+  </message>
+  <message id="11006">
+    <title>监控服务器修改失败</title>
+    <body>　原因：服务器名称、描述信息及监控项目不能为空。</body>
+  </message>
+  <message id="11007">
+    <title>监控服务器修改失败</title>
+    <body>　原因：服务器信息不存在。</body>
+  </message>
+  <message id="11008">
+    <title>监控服务器</title>
+    <body>信息修改成功</body>
+  </message>
+
+  <message id="12001">
+    <title>控件分类添加失败</title>
+    <body>　原因：分类名称及描述信息不能为空。</body>
+  </message>
+  <message id="12002">
+    <title>控件分类</title>
+    <body>添加成功</body>
+  </message>
+  <message id="12003">
+    <title>控件分类修改失败</title>
+    <body>　原因：分类名称及描述信息不能为空。</body>
+  </message>
+  <message id="12004">
+    <title>控件分类</title>
+    <body>修改成功</body>
+  </message>
+  <message id="12005">
+    <title>控件分类</title>
+    <body>删除成功</body>
+  </message>
+  <message id="12006">
+    <title>控件添加失败</title>
+    <body>　原因：未填写完控件的基本信息。</body>
+  </message>
+  <message id="12007">
+    <title>控件</title>
+    <body>添加成功</body>
+  </message>
+  <message id="12008">
+    <title>控件信息</title>
+    <body>删除成功</body>
+  </message>
+  <message id="12009">
+    <title>控件信息修改失败</title>
+    <body>　原因：未填写完控件的基本信息。</body>
+  </message>
+  <message id="12010">
+    <title>控件信息</title>
+    <body>修改成功</body>
+  </message>
+  <message id="12011">
+    <title>控件参数添加失败</title>
+    <body>　原因：未填写完参数的基本信息。</body>
+  </message>
+  <message id="12012">
+    <title>控件参数</title>
+    <body>添加成功</body>
+  </message>
+  <message id="12013">
+    <title>控件参数修改失败</title>
+    <body>　原因：未填写完参数基本信息。</body>
+  </message>
+  <message id="12014">
+    <title>控件参数</title>
+    <body>修改成功</body>
+  </message>
+  <message id="12015">
+    <title>控件参数</title>
+    <body>删除成功</body>
+  </message>
+
+  <!-- 资源管理部分开始20100-20199 -->
+  <message id="20101">
+    <title>删除资源数据\n</title>
+    <body>至少有一条删除失败！</body>
+  </message>
+  <!-- 资源管理部分结束 -->
+  
+  <!-- 业务模块管理部分开始20200-20299 -->
+  <message id="20200">
+    <title>操作失败！\n</title>
+    <body>原因：栏目中文名重复！</body>
+  </message>
+  <message id="20201">
+    <title>操作失败！\n</title>
+    <body>原因：栏目英文名重复！</body>
+  </message>
+  <!-- 资源管理部分结束 -->
+</root>

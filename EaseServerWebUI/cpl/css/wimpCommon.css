@@ -1,0 +1,123 @@
+@charset "utf-8";
+/* CSS Document */
+/*
+====================================================================
+基于xhtml 1.0:基本共用样式表    
+设计时间:2008-08    
+设计人:苹果梨梨 LIKE    
+---EASE 管理平台----
+====================================================================
+*/
+
+/*初始值
+
+----------------------------------------------------------------------------------*/
+body{margin:0;padding:0;background:#FFF; font-size:12px;
+	font-family:"Lucida Grande", Verdana, Lucida, Arial, Helvetica, "微软雅黑","宋体",sans-serif;color:#333;
+	SCROLLBAR-FACE-COLOR: #E8F1F6; 
+	SCROLLBAR-SHADOW-COLOR: #AEBEC8; 
+	SCROLLBAR-HIGHLIGHT-COLOR: #FFF; 
+	SCROLLBAR-3DLIGHT-COLOR: #AEBEC8; 
+	SCROLLBAR-DARKSHADOW-COLOR: #FFF; 
+	SCROLLBAR-TRACK-COLOR:#F0F4F6; 
+	SCROLLBAR-ARROW-COLOR: #6E849A; }
+div,form,p,ul,ol,li,dl,dt,dd,
+h1,h2,h3,h4,h5,h6			{border:0;list-style:none;margin:0;padding:0;text-align:left;}
+form, input, select, textarea { font-size:12px}
+a							{color:#333;}
+a:link,a:visited,a:active	{text-decoration:none;}
+a:hover 					{color:#333;}
+a img 						{border:0;cursor:pointer;}
+img							{vertical-align:middle; }
+.clear {CLEAR: both; FONT-SIZE: 0px; VISIBILITY: hidden; WIDTH: 1px; HEIGHT: 1px}
+
+/*框架结构
+----------------------------------------------------------------------------------*/
+#header,#footer         { margin-left:0; clear:both}
+#header					{ height:100px; min-width:1000px; width:auto!important; overflow:hidden;background:#FFF url(../images/logo.gif) no-repeat left 5px;}
+#footer					{ height:40px; background:#EFF6FF url(../images/ch_foot_bg01.gif) repeat-x left top; margin-top:10px; border-top:1px solid #C2CFDF;
+                         border-bottom:1px solid #C2CFDF;}
+#footer:after           { content: "."; display: block;height: 0; clear: both; visibility: hidden;}
+#adMBox{ margin-left:0}
+
+/*头部
+----------------------------------------------------------------------------------*/
+.headTop{ margin-left:0;height:67px;}
+.headTopText{ margin-left:0;padding:40px 10px 0 0; line-height:25px; text-align:right; }
+.headNav{ margin-left:0;height:33px; background:url(../images/ch_head_nav_bg.gif) repeat-x left top}
+
+.headTop{ height:67px;}
+.headTopText{ padding:40px 10px 0 0; line-height:25px; text-align:right; }
+.headNav{position: relative; height:33px; overflow:hidden; background:url(../images/ch_head_nav_bg.gif) repeat-x left top}
+
+.headScrollerL{position:absolute;width:17px; padding:7px 0px;cursor:pointer;left:0pt;top:0pt;z-index:10;}
+.headScrollerR{position:absolute;width:17px; padding:7px 0px;cursor:pointer;right:0pt;top:0pt;z-index:10;}
+.headNavStrip{overflow:hidden;position:relative; margin-left:30px; margin-right:30px;}
+.headNavStrip ul{ margin-left:0;}
+/*按钮效果--------------*/
+.headNavStrip ul li{ float:left;}
+.headNavStrip ul li.liLine{ width:2px; padding:8px 10px}
+.headNavStrip ul li.liOver{float:left;}
+.headNavStrip ul li.liOver .out{margin-top:3px;}
+.headNavStrip ul li.liOver .out .in{background:url(../images/ch_head_nav_bot_right02.gif) no-repeat right top; line-height:26px;  color:#fff; padding:0 20px 0 8px;}
+.headNavStrip ul li.liOver .out .in a{ color:#fff}
+.headNavStrip ul li.liOver .out .in a:hover{ text-decoration:none}
+/*.headNavStrip ul li.liOver .out{ margin-top:3px;}
+.headNavStrip ul li.liOver .out .in{line-height:26px; color:#fff;}
+.headNavStrip ul li.liOver .out .in a{ color:#fff}
+.headNavStrip ul li.liOver .out .in a:hover{ text-decoration:none}*/
+
+.headNavStrip ul li.liAct{float:left;}
+.headNavStrip ul li.liAct .out{background:url(../images/ch_head_nav_bot_left.gif) no-repeat left top; margin-top:3px; }
+.headNavStrip ul li.liAct .out .in{ background:url(../images/ch_head_nav_bot_right.gif) no-repeat right top; line-height:26px;  color:#fff; padding:0 20px 0 8px;}
+.headNavStrip ul li.liAct .out .in a{ color:#fff}
+.headNavStrip ul li.liAct .out .in a:hover{ text-decoration:none}
+
+
+/*菜单下拉层*/
+.navText{position:absolute;margin-left:50px;width:100px;overflow:hidden;padding:0 5px;background: url(../images/ch_tc_bg.gif) repeat-y left top #EFF7FE;border:1px solid #6298C7;left: -33px;}
+.navText p{line-height:25px;display:block; padding:0 5px; margin:2px 0}
+.navText p.over{line-height:25px;display:block}
+.navText p.overbg{line-height:25px;display:block; background: url(../images/ch_arr02.gif) no-repeat right 9px;}
+.navText p.act{line-height:25px;display:block; background:#2682C6; color:#FFF}
+.navText p.act a{color:#FFF}
+.navText p.act02{ line-height:25px;display:block; background: url(../images/ch_arr.gif) no-repeat right 9px #2682C6; color:#FFF}
+.navText p.act02 a{color:#FFF}
+
+/*底部
+----------------------------------------------------------------------------------*/
+.footText{margin:8px 10px; border:1px solid #CCCCFE;}
+table.listf {background-color:#FFF; width:100%; margin:0 auto; height:auto; font-size:12px}
+table.listf tbody.tb1 th {background:#E2E2E2; font-weight:normal;text-align:left;padding:2px 5px; line-height:20px; color:#999}
+table.listf tbody.tb1 th.th01{ width:15%;}
+table.listf tbody.tb1 th.th02{ width:15%;}
+table.listf tbody.tb1 th.th03{ width:15%;}
+table.listf tbody.tb1 th.th04{ width:15%;}
+table.listf tbody.tb1 th.th05{ width:15%;}
+table.listf tbody.tb1 th.th06{ width:20%;}
+table.listf tbody.tb1 th.th07{ width:5%; text-align:center}
+table.listf img.im01{ margin:0 10px}
+table.listf span{ color:#333}
+table.listf span.spnew{ cursor:pointer; width:19px; height:20px; display:block; background:url(../images/ch_email.gif) no-repeat left top}
+
+
+/* 导出图表浮动层样式 */
+.liststatpic {position:absolute;width:60px;overflow:hidden;padding:0px;background: url(../images/ch_tc_bg.gif) repeat-y left top #EFF7FE;border:1px solid #6298C7;margin-left:auto; margin-right:auto; left:0px; top:0px; height:auto; z-index:200001; line-height:24px; padding-top:3px; padding-bottom:3px; display:none;}
+.liststatpic p{line-height:24px; height:24px; display:block; padding:0px; margin:0px; text-align:left; width:46px; padding-left:2px; margin-left:7px;}
+.liststatpic p.over{}
+.liststatpic p.act{background:#2682C6; color:#FFF}
+
+/*增加样式*/
+div.title {cursor:pointer;}
+
+.easebtn { margin:6px 0 0 8px; height:20px; }
+.easebtn a {border:1px solid #90C0E8; line-height:19px;padding:1px 5px 0 5px;background:url(../images/ch_right_bot_bg01.gif) repeat-x left 1px;}
+.easebtn a:hover{ background:url(../images/ch_right_bot_bg02.gif) repeat-x left 1px;border:1px solid #CC5E00;}
+.Picbtn {width:57px; height:20px; line-height:20px; border:1px #999 solid; color:#333; background:url(../images/inbg.jpg) repeat-x;}
+
+
+/*  添加右侧输入样式  */
+
+.td01 { width:20%;}
+.td02 { width:80%;}
+.inp02 { width:80%; text-align:left;background-image:url(../images/ch_ridi_textbg.gif); background-repeat:repeat-x;background-position:top left;background-attachment:scroll; background-color:Transparent; border:solid 1px #B5B8C8; padding-top:1px;padding-bottom:1px;}

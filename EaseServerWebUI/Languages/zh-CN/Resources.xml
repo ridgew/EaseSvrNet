@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <resource name="GetMenuListByParentIdUserId">
+    SELECT  a.*
+    FROM    [gw_Admin_Menus] a
+    INNER JOIN ( SELECT DISTINCT
+    a.[MenuId]
+    FROM   [gw_Admin_Menus] a
+    INNER JOIN [gw_Admin_MenusInRoles] b ON a.[MenuId] = b.[MenuId]
+    INNER JOIN [gw_Admin_UsersInRoles] c ON c.[RoleId] = b.[RoleId]
+    WHERE  a.[ParentId] = @ParentId
+    AND a.[ApplicationId] = @ApplicationId
+    AND c.[UserId] = @UserId
+    ) b ON a.[MenuId] = b.[MenuId]
+    ORDER BY a.[OrderNum] DESC
+  </resource>
+  <resource name="GetMenuListByParentIdUserId_Input">ParentId,ApplicationId,UserId</resource>
+  <resource name="GetMenuListByParentId">
+    SELECT  *
+    FROM    [gw_Admin_Menus]
+    WHERE   [ParentId] = @ParentId
+    AND [ApplicationId] = @ApplicationId
+    ORDER BY [OrderNum] DESC
+  </resource>
+  <resource name="GetMenuListByParentId_Input">ParentId,ApplicationId</resource>
+
+  <!-- 业务树获取SQL语句 -->
+  <resource name="ProductGetTreeItems">
+    |
+    --业务数据
+    select PC_ID as ID,'A' as Deepth, PC_Name as Name from gw_General_ProductClass
+    --RoleBegin--
+    where PC_ID in (select ID from gw_Product_AdminRoles where RoleID in (@myRoleID) AND type=0)
+    --RoleEnd-- 
+    order by PC_OrderNum
+    |
+    --业务协议
+    select Pid as ID,Pname as Name from GW_General_Protocol order by Pname
+    |
+    --业务平台
+    select PE_ID as ID,PE_Name as Name from gw_General_ProductEvment
+    |
+    --运营商
+    select I_ID as ID,I_NAME as Name from GW_General_ISP
+    |
+    --业务状态
+    select PS_ID as ID,PS_Name as Name from GW_General_ProductStat
+    |
+    --计费模式
+    select AT_ID as ID,AT_Name as Name from GW_General_AccountType
+    |
+    --SP
+    SELECT [SP_ID] as ID ,[Name] FROM [GW_SP_Info]
+  </resource>
+
+
+  <!-- 业务分类级判定SQL语句 -->
+  <resource name="ProductGetTreeItemChildCounts">
+    select top 1 * from [gw_Publish_Product] where PC_ID={0}
+    --RoleBegin--
+    AND ProductID in (select ID from gw_Product_AdminRoles where RoleID in (@myRoleID) AND type=1)
+    --RoleEnd--
+  </resource>
+
+  <!-- 业务级判定SQL语句 -->
+  <resource name="ProductGetTreeItemChildCountsB">
+    Select top 1 * From gw_Publish_Page Where ProductID={0} 
+    --RoleBegin-- 
+    AND PageID in (select ID from gw_Product_AdminRoles where RoleID in (@myRoleID) AND type=2)
+    --RoleEnd--
+  </resource>
+
+  <!-- 频道/栏目级判定SQL语句 -->
+  <resource name="ProductGetTreeItemChildCountsC">
+    Select top 1 * From gw_Publish_PageModule Where Parent_ID=0 AND P_ID={0}
+    --RoleBegin--
+    AND M_ID in (select ID from gw_Product_AdminRoles where RoleID in (@myRoleID) AND type=3)
+    --RoleEnd--
+  </resource>
+
+  <!-- 模块递归级判定SQL语句 -->
+  <resource name="ProductGetTreeItemChildCountsD">
+    Select top 1 * From gw_Publish_PageModule Where Parent_ID={0}
+    --RoleBegin--
+    AND M_ID in (select ID from gw_Product_AdminRoles where RoleID in (@myRoleID) AND type=3)
+    --RoleEnd--
+  </resource>
+
+  <!-- 业务分类级获取SQL语句 -->
+  <resource name="ProductGetTreeItemChildren">
+    select ProductID as ID, 'B' as Deepth, ProductName as Name from [gw_Publish_Product] where PC_ID={0}
+    --RoleBegin--
+    AND ProductID in (select ID from gw_Product_AdminRoles where RoleID in (@myRoleID) AND type=1)
+    --RoleEnd--
+    order by Name asc
+  </resource>
+
+  <!-- 业务级获取SQL语句 -->
+  <resource name="ProductGetTreeItemChildrenB">
+    Select PageID as ID,'C' as Deepth, PageName as Name From gw_Publish_Page Where ProductID={0}
+    --RoleBegin--
+    AND PageID in (select ID from gw_Product_AdminRoles where RoleID in (@myRoleID) AND type=2)
+    --RoleEnd--
+    Order By sortnum Desc
+  </resource>
+
+  <!-- 频道/栏目级获取SQL语句 -->
+  <resource name="ProductGetTreeItemChildrenC">
+    Select Convert(nvarchar(10),M_ID) + '$' + Convert(nvarchar(10),M_DataType) as ID, 'D' as Deepth, M_CName as Name From gw_Publish_PageModule
+    Where Parent_ID=0 AND P_ID={0}
+    --RoleBegin--
+    AND M_ID in (select ID from gw_Product_AdminRoles where RoleID in (@myRoleID) AND type=3)
+    --RoleEnd--
+    order by M_OrderNum desc
+  </resource>
+
+  <!-- 模块递归级获取SQL语句 -->
+  <resource name="ProductGetTreeItemChildrenD">
+    Select Convert(nvarchar(10),M_ID) + '$' + Convert(nvarchar(10),M_DataType) as ID, 'D' as Deepth, M_CName as Name From gw_Publish_PageModule
+    Where Parent_ID={0}
+    --RoleBegin--
+    AND M_ID in (select ID from gw_Product_AdminRoles where RoleID in (@myRoleID) AND type=3)
+    --RoleEnd--
+    order by M_OrderNum desc
+  </resource>
+
+</root>

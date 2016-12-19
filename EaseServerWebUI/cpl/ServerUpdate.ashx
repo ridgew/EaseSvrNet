@@ -1,0 +1,1 @@
+﻿<%@ WebHandler Language="C#" Class="EaseServer.Management.ServerUpdateHandler, EaseServer.Management" %>

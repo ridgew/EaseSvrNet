@@ -1,0 +1,146 @@
+﻿<script type="text/javascript">
+<!--
+	var $ = function(objId) { return document.getElementById(objId); };
+	function setRes()
+	{
+		var num = (arguments.length < 1) ? window.prompt("请填写要更新的资源包个数：","1") : arguments[0];
+		if (num != null)
+		{
+			num = parseInt(num);
+			if (num>1)
+			{
+				var fHtml = "";
+				for (var i=1; i<=num ; i++ )
+				{
+					fHtml+= "<div>文件"+i+"：<input type=\"file\" size=\"55\" name=\"file"+i+"\" /></div>\n";
+				}
+				$("filePal").innerHTML = fHtml;
+			}
+		}
+	}
+
+	function areUSure(frm)
+	{
+		var topic = {xls:'Excel文件', map:'地图文件', res:'图片资源包', act:'动作文件' };
+		var fts = $('ftype');
+		var fileType = '';
+		for (var i=0; i<fts.length ; i++ )
+		{
+			if (fts[i].checked)
+			{
+				fileType = topic[fts[i].value]; break;
+			}
+		}
+		var summary = '将更新：' 
+		+ frm.selPath.options[frm.selPath.selectedIndex].text + ' 的 【' + fileType
+		+ '】 \n\n清空旧的文件：' + (frm.clearOld.checked ? '√' : '×')
+		+ ' \n\n请确认是否正确！'
+		return window.confirm(summary);
+	}
+
+	function doDebug()
+	{
+		var rootUrl = document.location.href.replace(/\/upload$/gi,'');
+		var idx = rootUrl.indexOf('?');
+		if ( idx != -1) rootUrl = rootUrl.substr(0, idx);
+
+		var params = new Array();
+		var curObj = $('selPath');
+		params.push("pass=" + curObj.value);
+		var cbxIDs = 'cbxDebug cbxNototal cbxBinHex cbxShowErr'.split(' ');
+		for (var i=0; i<cbxIDs.length ; i++)
+		{
+			curObj = $(cbxIDs[i]);
+			if (curObj.checked) params.push(curObj.value + "=1");
+		}
+		curObj = $('selScreen');
+		if (curObj.value != '') params.push("s=" + curObj.value);
+		curObj = $('dptGetSpe');
+		if (curObj.value != '') params.push("get=" + curObj.value);
+		curObj = $('dptExcelSheet');
+		if (curObj.value != '') params.push("t=" + curObj.value);
+		curObj = $('hidLink');
+		curObj.href = rootUrl + "?" + params.join('&');
+		try {curObj.click();} catch (e) { window.open(curObj.href); }
+	}
+//-->
+</script>
+<style type="text/css">
+	* { font-size:10.5pt; line-height:120%; }
+</style>
+<a id="hidLink" target="_blank" style="display:none">&nbsp;</a>
+<strong><font color="red">提醒：请操作前备份数据，本操作不做备份。</font></strong>
+<form enctype="multipart/form-data" method="post" onsubmit="return areUSure(this);" id="frmUpload">
+选择匹配屏幕：
+<select name="selScreen" id="selScreen">
+<optgroup label="240">
+	<option value="">240x320</option>
+</optgroup>
+<optgroup label="176">
+	<option value="176">176x?</option>
+	<option value="176208">176x208</option>
+	<option value="176220">176x220</option>
+</optgroup>
+</select>
+<br/><br />
+选择更新场景：
+<input type="text" name="selPath" id="selPath" value="009" size="10" />(001序言、009测试、其他关卡1位+场景号2位)
+<br/><br />
+
+<table style="background-color:#000000;" border="0" cellspacing="1" cellpadding="5">
+<tr><td width="50%" bgcolor="#ffffff">
+选择更新内容：<input type="checkbox" name="clearOld" value="1" id="clearOld"><label for="clearOld"><font color="green"><u>保存前清空相关文件</u></font></label><br/>
+<input type="radio" name="ftype" value="xls" id="ftypeXls" Checked="checked" />
+<label for="ftypeXls">Excel文件</label>
+
+<input type="radio" name="ftype" value="map" id="ftypeMap" />
+<label for="ftypeMap">地图文件</label>
+
+<input type="radio" name="ftype" value="res" id="ftypeRes" onclick="javascript:setRes()" />
+<label for="ftypeRes">图片资源包</label>
+
+<input type="radio" name="ftype" value="act" id="ftypeActs" onclick="javascript:setRes(2)" />
+<label for="ftypeActs">动作文件</label>
+
+<input type="radio" name="ftype" value="bg" id="ftypeBg"/>
+<label for="ftypeBg">背景文件</label>
+<br/>
+<div id="filePal">
+	<div id="file1Pal">文件1：<input type="file" size="55" name="file1" /></div>
+</div><br/>
+&nbsp;&nbsp; <input type="submit" name="Submit" value="更新数据" />
+</td>
+
+<td width="50%" bgcolor="#ffffff" valign="top">
+<div style="padding:2px;color:red;"><strong>调试辅助：</strong></div>
+<br/>
+<input type="checkbox" id="cbxDebug" value="debug" checked="checked" /><label for="cbxDebug">开启输出调试</label>
+<input type="checkbox" id="cbxNototal" value="nt" checked="checked" /><label for="cbxNototal">不输出文件总长度</label> 
+<input type="checkbox" id="cbxShowErr" value="err" /><label for="cbxShowErr">输出源码错误</label> <br/>
+
+<input type="checkbox" id="cbxBinHex" value="bin" /><label for="cbxBinHex">查看二进制文件的16进制文本格式</label><br/>
+输出分块数据 <select id="dptGetSpe">
+	<option value="">--全部输出--</option>
+	<option value="1">图片资源包</option>
+	<option value="2">地图文件</option>
+	<option value="3">Excel文件</option>
+	<option value="4">动作文件</option>
+	<option value="5">背景文件</option>
+</select>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<span style="color:#990000;font-size:12px;font-weight:bold;font-style:italic;font-family:'Comic Sans MS'">Excel Sheet</span>
+<select id="dptExcelSheet">
+	<option value="">--全部输出--</option>
+	<option value="1">道具</option>
+	<option value="2">人物</option>
+	<option value="3">事件</option>
+	<option value="4">任务</option>
+	<option value="5">动画</option>
+	<option value="6">技能</option>
+	<option value="7">对话</option>
+</select>
+<br/><br/>
+<input type="button" value="打开调试地址" onclick="javascript:doDebug();" />
+</td></tr>
+</table>
+</form>

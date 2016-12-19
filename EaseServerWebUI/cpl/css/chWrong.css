@@ -1,0 +1,32 @@
+/* CSS Document */
+/*
+====================================================================
+基于xhtml 1.0:基本共用样式表    
+设计时间:2008-08    
+设计人:苹果梨梨 LIKE    
+----WAP综合管理平台-弹出窗口----
+====================================================================
+*/
+
+/*初始值
+
+----------------------------------------------------------------------------------*/
+body						{margin:0;padding:0;background:#FFF; height:100%;font-size:12px;
+							font-family:"Lucida Grande", Verdana, Lucida, Arial, Helvetica, "宋体",sans-serif;color:#333; text-align:center}
+div,form,p,ul,ol,li,dl,dt,dd,
+h1,h2,h3,h4,h5,h6			{border:0;list-style:none;margin:0;padding:0;text-align:left;}
+form, input, select, textarea { font-size:12px}
+a							{color:#333;}
+a:link,a:visited,a:active	{text-decoration:none;}
+a:hover 					{color:#333;}
+a img 						{border:0;cursor:pointer;}
+img							{vertical-align:middle; }
+.clear {CLEAR: both; FONT-SIZE: 0px; VISIBILITY: hidden; WIDTH: 1px; HEIGHT: 1px}
+
+/*增加、查看、修改频道/查询套餐/套餐列表/增加栏目
+----------------------------------------------------------------------------------*/
+#wrong { margin:0 auto; width:380px; margin-top:100px; border:1px solid #99BBE8; background:#ECF1F9 url(../images/ch_wrong_bg.gif) no-repeat center 20px}
+h1.hwrong{ margin-top:150px; text-align:center; line-height:30px; color:#FF0000; font-size:14px; font-weight:normal}
+#wrong p{ line-height:30px; text-align:center; padding:10px}
+
+

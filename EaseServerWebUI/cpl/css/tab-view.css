@@ -1,0 +1,15 @@
+.dhtmlgoodies_tabPane{ height:21px;border-bottom:1px solid #919b9c;overflow:auto; font-family:"宋体"; font-size:12px;}
+.dhtmlgoodies_aTab{
+	border-left:1px solid #919b9c;border-right:1px solid #919b9c;border-bottom:1px solid #919b9c;
+	font-family: 宋体, Trebuchet MS, Lucida Sans Unicode, Arial, sans-serif;padding:5px;
+}
+.dhtmlgoodies_tabPane DIV{
+	float:left;height:100%;padding-left:3px;vertical-align:middle;background-repeat:no-repeat;background-position:bottom left;
+	cursor:pointer;position:relative;bottom:-1px;margin-left:0px;margin-right:0px;
+}
+.dhtmlgoodies_tabPane .tabActive{background-image:url('../images/tab_left_active.gif');margin-left:0px;margin-right:0px;}
+.dhtmlgoodies_tabPane .tabInactive{background-image:url('../images/tab_left_inactive.gif');margin-left:0px;margin-right:0px;}
+.dhtmlgoodies_tabPane .inactiveTabOver{background-image:url('../images/tab_left_over.gif');margin-left:0px;margin-right:0px;}
+.dhtmlgoodies_tabPane span{ font-family:"宋体";vertical-align:top;font-size:11px;padding-left:3px;padding-right:3px;line-height:21px;float:left;}
+.dhtmlgoodies_tabPane .tabActive span{padding-bottom:1px;line-height:20px;}
+.dhtmlgoodies_tabPane img{float:left;}

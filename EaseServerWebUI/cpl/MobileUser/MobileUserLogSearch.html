@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>EASE业务管理系统 - 日志查看 - 日志搜索</title>
+<style type="text/css" media="all">
+    @import url(../css/chWindows.css);
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+    //手机用户搜索JS部分
+    $(function() {
+        //绑定页面按钮事件
+        $("#btn_Save").click(function() { Submit_Search(); }).attr({ style: "cursor:pointer;" });
+        $("#btn_Close").click(function() { window.top.fn_del_div(); }).attr({ style: "cursor:pointer;" });
+    });
+
+    //提交搜索
+    function Submit_Search() {
+        var SearchField = [];
+        var SearchCondition = [];
+        var SearchValue = [];
+
+        var _TxtFieldArr = ["RemoteEndPoint", "StatusCode", "KEY_URL", "Message"];
+        var _SelFieldArr = ["SERVICE_ID", "SOFTWARE_ID"];
+
+        for (var t = 0; t < _TxtFieldArr.length; t++) {
+            if ($.trim($("#" + _TxtFieldArr[t]).val()) != "") {
+                SearchField[SearchField.length] = _TxtFieldArr[t];
+                SearchCondition[SearchCondition.length] = 6;
+                SearchValue[SearchValue.length] = $.trim($("#" + _TxtFieldArr[t]).val());
+            }
+        }
+
+        for (var s = 0; s < _SelFieldArr.length; s++) {
+            if ($.trim($("#" + _SelFieldArr[s]).val().replace(/[^0-9]*/gi, '')) != "") {
+                SearchField[SearchField.length] = _SelFieldArr[s];
+                SearchCondition[SearchCondition.length] = 0;
+                SearchValue[SearchValue.length] = $.trim($("#" + _SelFieldArr[s]).val().replace(/[^0-9]*/gi, ''));
+            }
+        }
+
+        var _WinObj = window.top.deskTabs.getFrameRight().contentWindow;
+        _WinObj.pageConfig.SearchField = SearchField;
+        _WinObj.pageConfig.SearchCondition = SearchCondition;
+        _WinObj.pageConfig.SearchValue = SearchValue;
+        _WinObj.Init_PageDataListConfig();
+        window.top.fn_del_div();
+    }
+</script>
+</head>
+<body>
+<div id="ich" style="margin:0px; padding:0px;">
+	<div class="ichText">
+    	<table border="0" cellspacing="1" class="listIch">
+          <tbody class="tb1">
+            <tr>
+              <th class="th01" valign="middle" style="width:14%;">用户编号：</th>
+              <th class="th02" valign="middle" style="width:36%;">
+                <input class="inp02" type="text" name="SOFTWARE_ID" id="SOFTWARE_ID" maxlength="20" value="" style="width:200px;"  onkeyup="javascript:top.CheckInput(this,1);"  />
+              </th>
+              <th class="th01" valign="middle" style="width:14%;">连接端点：</th>
+              <th class="th02" valign="middle" style="width:36%;">
+                <input class="inp02" type="text" name="RemoteEndPoint" id="RemoteEndPoint" maxlength="21" value="" style="width:200px;" />
+              </th>
+            </tr>
+          </tbody>
+          <tbody id="Search_FieldList">
+            <tr>
+              <td class="td01" valign="middle">业务编号：</td>
+              <td valign="middle" class="td02">
+                <input class="inp02" type="text" name="SERVICE_ID" id="SERVICE_ID" value="" maxlength="18" style="width:200px;" onkeyup="javascript:top.CheckInput(this,1);"  />
+              </td>
+              <td class="td01" valign="middle">状态码：</td>
+              <td valign="middle" class="td02">
+               <input class="inp02" type="text" name="StatusCode" id="StatusCode" value="" maxlength="50" style="width:200px;" />
+              </td>
+            </tr>
+             <tr>
+              <td class="td01" valign="middle">原始地址：</td>
+              <td valign="middle" class="td02" colspan="3">
+                <input class="inp02" type="text" name="KEY_URL" id="KEY_URL" value="" maxlength="255" style="width:400px;" />
+              </td>
+            </tr> 
+            <tr>
+              <td class="td01" valign="middle">备 注：</td>
+              <td valign="middle" class="td02" colspan="3">
+                <input class="inp02" type="text" name="Message" id="Message" value="" maxlength="255" style="width:400px;" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+		<div class="ichFootICH">
+			<input name="btn_Save" type="button" id="btn_Save" onmouseover="this.className = 'intb';" onmouseout="this.className = 'outb';" value="搜 索"/>
+			<input name="btn_Close" type="button" id="btn_Close"  onmouseover="this.className = 'intb';" onmouseout="this.className='outb';" value="关 闭"/>
+		</div>
+	</div>
+</div>
+</body>
+</html>

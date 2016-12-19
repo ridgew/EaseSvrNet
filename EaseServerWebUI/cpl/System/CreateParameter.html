@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <title>增加系统参数</title>
+    <style type="text/css" media="all">
+        @import url(../css/wimpCommon.css);
+        @import url(../css/chChannel.css);
+        @import url(../css/chRight.css);
+    </style>
+
+    <script type="text/javascript" src="../js/jquery.js"></script>
+
+    <script type="text/javascript" src="../js/System/CreateParameter.js"></script>
+
+</head>
+<body style="background-color: #fafafa">
+    <div class="rightBox">
+        <div class="rightText" id="row3">
+            <table border="0" cellspacing="1" class="listIB">
+                <tbody class="tb1">
+                    <tr>
+                        <th class="th03" style="width: 20%">
+                            系统参数名称：
+                        </th>
+                        <th class="th02">
+                            <input type="text" class="inp02" id="txtName" maxlength="50" />
+                        </th>
+                        <th class="th05">
+                            如果修改的参数名称不存在将自动创建新参数。
+                        </th>
+                    </tr>
+                    <tr>
+                        <td class="td01">
+                            系统参数值内容：
+                        </td>
+                        <td>
+                            <input id="txtValue" class="inp02" maxlength="100" type="text" />
+                        </td>
+                        <td class="td02">
+                            系统参数对应的值内容
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td01">
+                            系统参数详细描述：
+                        </td>
+                        <td>
+                            <textarea id="txtDescription" rows="6" style="width:325px; border: 1px solid #B5B8C8;" wrap="off"></textarea>
+                        </td>
+                        <td class="td02">
+                            描述该系统参数的详细用法及功能
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="ichFootIm">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="listBIfoot"
+                    style="padding-left: 96px">
+                    <tr style="height: 18px">
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="Bot">
+                                <a id="aSave" style="cursor: pointer" title="保存">
+                            保&nbsp;&nbsp;&nbsp;&nbsp;存
+                        </td>
+                        <td>
+                            <div class="Bot">
+                                <a id="aReset" style="cursor: pointer" title="重置">重&nbsp;&nbsp;&nbsp;&nbsp;置</a></div>
+                        </td>
+                    </tr>
+                    <tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

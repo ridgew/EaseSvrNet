@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>接入服务器业务配置管理 - 业务配置修改</title>
+<style type="text/css" media="all">
+    @import url(../css/wimpCommon.css);
+	@import url(../css/chChannel.css);
+	@import url(../css/chRight.css);
+	.td01 { width:20%;}
+	.td02 { width:80%;}
+	.inp02 { width:80%; text-align:left;background-image:url(../images/ch_ridi_textbg.gif); background-repeat:repeat-x;background-position:top left;background-attachment:scroll; background-color:Transparent; border:solid 1px #B5B8C8; padding-top:1px;padding-bottom:1px;}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="../js/Assist/entSrv.js"></script>
+</head>
+<body>
+<form id="theForm" action="">
+<div class="rightBox">
+	<div class="rTitle1"><h2 class="rightT1" id="Navi_Txt">修改业务配置信息</h2></div>
+	<div id="ich">
+  		<div class="ichText">	    
+            <table border="0" cellspacing="1" class="listIch">          
+              <tbody>
+                <tr>
+                  <td class="td01">业务编号(SERVICE_ID)：</td>
+                  <td class="td02">
+                    <input name="oldsid" id="oldsid" value="" type="hidden" />
+                    <input name="SERVICE_ID" id="SERVICE_ID" value="0" class="inp02" type="text" /><span style="color:#ff0000">*</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="td01">业务名称(SERVICE_NAME)：</td>
+                  <td class="td02">
+                    <input name="SERVICE_NAME" id="SERVICE_NAME" value="" class="inp02" type="text" /><span style="color:#ff0000">*</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="td01">协议版本(SERVICE_VERSION)：</td>
+                  <td class="td02">
+                    <input name="SERVICE_VERSION" id="SERVICE_VERSION" value="1" class="inp02" type="text" />
+                  </td>
+                </tr>
+                <tr>
+                  <td class="td01">服务编码(SERVICE_ENCODE)：</td>
+                  <td class="td02">
+                    <select name="SERVICE_ENCODE" id="SERVICE_ENCODE" class="inp02">
+                        <option value="0">UTF-8</option>
+                        <option value="1">Unicode</option>
+                        <option value="2">GB2312</option>
+                    </select>
+                  </td>
+                </tr>                
+                <tr>
+                  <td class="td01">输入编码(TXT_IN_ENCODE)：</td>
+                  <td class="td02">
+                    <select name="TXT_IN_ENCODE" id="TXT_IN_ENCODE" class="inp02">
+                        <option value="0">UTF-8</option>
+                        <option value="1">Unicode</option>
+                        <option value="2">GB2312</option>
+                    </select>
+                  </td>
+                </tr>  
+                <tr>
+                  <td class="td01">输出编码(TXT_OUT_ENCODE)：</td>
+                  <td class="td02">
+                    <select name="TXT_OUT_ENCODE" id="TXT_OUT_ENCODE" class="inp02">
+                        <option value="0">UTF-8</option>
+                        <option value="1">Unicode</option>
+                        <option value="2">GB2312</option>
+                    </select>
+                  </td>
+                </tr> 
+                <tr>
+                  <td class="td01">启动模式(FIRST_MODE)：</td>
+                  <td class="td02">
+                    <select name="FIRST_MODE" id="FIRST_MODE" class="inp02">
+                        <option value="0">不附带免责,客户端不执行指定操作</option>
+                        <option value="1">附带免责,客户端不执行指定操作</option>
+                        <option value="2">附带免责,客户端执行指定操作</option>
+                        <option value="3">不附带免责,客户端执行指定操作</option>
+                    </select>
+                  </td>
+                </tr>  
+                <tr>
+                  <td class="td01">操作类型(FIRST_ACTION_TYPE)：</td>
+                  <td class="td02">
+                    <select name="FIRST_ACTION_TYPE" id="FIRST_ACTION_TYPE" class="inp02">
+                        <option value="0">无任何操作</option>
+                        <option value="1">发送短信</option>
+                        <option value="2">调用WAP浏览器</option>
+                        <option value="3">拨打电话</option>
+                        <option value="4">主程序存在更新，下载主程序</option>
+                    </select>
+                  </td>
+                </tr> 
+                <tr>
+                  <td class="td01">操作类型参数(FIRST_ACTION)：</td>
+                  <td class="td02">
+                    <input name="FIRST_ACTION" id="FIRST_ACTION" value="0" class="inp02" type="text" /><br />
+                     <ul>
+                     <li>操作类型为0时不存在，长度为0</li>
+                     <li>操作类型为1时为短信指令</li>
+                     <li>操作类型为2时为WAP链接</li>
+                     <li>操作类型为3时为电话号码</li>
+                     <li>操作类型为4时为主程序下载链接</li>
+                     </ul> 
+                  </td>
+                </tr>  
+                <tr>
+                  <td class="td01">客户端根地址(CLIENT_ROOT_URI)：</td>
+                  <td class="td02">
+                    <input name="CLIENT_ROOT_URI" id="CLIENT_ROOT_URI" value="file:///" class="inp02" type="text" />
+                    <span style="color:#ff0000">*</span>
+                  </td>
+                </tr>  
+                <tr>
+                  <td class="td01">远程应用地址(SERVICE_URL)：</td>
+                  <td class="td02">
+                    <input name="SERVICE_URL" id="SERVICE_URL" value="http://118.123.205.165:8080/App/Post.ashx" class="inp02" type="text" />
+                    <span style="color:#ff0000">*</span>
+                  </td>
+                </tr>  
+                <tr>
+                  <td class="td01">连接类型(CONNECT_TYPE)：</td>
+                  <td class="td02">
+                    <input name="CONNECT_TYPE" id="CONNECT_TYPE" value="0" class="inp02" type="text" />
+                    <span style="color:#ff0000">*</span>
+                  </td>
+                </tr>  
+                <tr>
+                  <td class="td01">远程链接前缀(LINK_URL_PREFIX)：</td>
+                  <td class="td02">
+                    <input name="LINK_URL_PREFIX" id="LINK_URL_PREFIX" value="" class="inp02" type="text" />
+                    <span style="color:#ff0000">*</span>
+                  </td>
+                </tr>  
+                <tr>
+                  <td class="td01">远程资源前缀(RES_URL_PREFIX)：</td>
+                  <td class="td02">
+                    <input name="RES_URL_PREFIX" id="RES_URL_PREFIX" value="" class="inp02" type="text" />
+                    <span style="color:#ff0000">*</span>
+                  </td>
+                </tr>  
+                <tr>
+                  <td class="td01">服务起始页(SERVICE_INDEX_URL)：</td>
+                  <td class="td02">
+                    <input name="SERVICE_INDEX_URL" id="SERVICE_INDEX_URL" value="http://" class="inp02" type="text" />
+                    <span style="color:#ff0000">*</span>
+                  </td>
+                </tr>  
+                <tr>
+                  <td class="td01">注册地址(SERVICE_REG_URL)：</td>
+                  <td class="td02">
+                    <input name="SERVICE_REG_URL" id="SERVICE_REG_URL" value="" class="inp02" type="text" />
+                    <span style="color:#ff0000">*</span>
+                  </td>
+                </tr>  
+                <tr>
+                  <td class="td01">帮助地址(SERVICE_HELP_URL)：</td>
+                  <td class="td02">
+                    <input name="SERVICE_HELP_URL" id="SERVICE_HELP_URL" value="" class="inp02" type="text" />
+                  </td>
+                </tr>  
+                <tr>
+                  <td class="td01">业务数据库(SERVICE_DATABASE)：</td>
+                  <td class="td02">
+                    <input name="SERVICE_DATABASE" id="SERVICE_DATABASE" value="GwsoftEase" class="inp02" type="text" />
+                    <span style="color:#ff0000">*</span>
+                  </td>
+                </tr>
+				<tr>
+                  <td class="td01">用户标识分配规则(SQL)：</td>
+                  <td class="td02">
+                    <input name="SERVICE_UserAssignFormat" id="SERVICE_UserAssignFormat" value="select isnull((SELECT top 1 SOFTWARE_ID from GW_Proxy_SOFTWARE where IMEI='{IMEI}' AND SERVICE_ID={SERVICE_ID}),0) as CurrentUserID" class="inp02" type="text" />
+                    <br /><span style="color:#ff0000">* 当查询用户编号为0时将分配新的用户，用户表中字段参数使用{字段名}标记。</span>
+                  </td>
+                </tr>
+				<tr>
+                  <td class="td01">页面参数处理(PageParamProcess)：</td>
+                  <td class="td02">
+                    <select name="PageParamProcess" id="PageParamProcess" class="inp02">
+                        <option value="1">附加参数并以GET方式发送HTTP请求</option>
+                        <option value="2">附加参数并以POST方式发送HTTP请求</option>
+                        <option value="4">*强制所有URL参数都为POST参数</option>
+                    </select>
+                  </td>
+                </tr> 
+				<tr>
+					<td colspan="2" style="text-align:center">
+						<fieldset style="width:90%;"><legend> 缓存模块配置 </legend>
+						 <table border="0" cellspacing="1" class="listIch">          
+						  <tbody>
+						  <tr>
+						  <td class="td01">一级缓存分钟数(内存)：</td>
+						  <td class="td02">
+							<input name="MemoryCacheTime" id="MemoryCacheTime" value="0" class="inp02" type="text" />
+						  </td>
+						</tr>
+						 <tr>
+						  <td class="td01">二级缓存分钟数(磁盘)：</td>
+						  <td class="td02"><input name="IsolatedCacheTime" id="IsolatedCacheTime" value="0" class="inp02" type="text" /></td>
+						</tr>
+						<tr>
+						  <td class="td01">进入一级缓存使用率：</td>
+						  <td class="td02">
+							<input name="SplitRate" id="SplitRate" class="inp02" type="text" value="0.50" /> <br/>
+							值：0.50代表50%的缓存使用率，其他依此类推。
+						  </td>
+						</tr>
+						 <tr>
+						  <td class="td01">缓存模块使用方式：</td>
+						  <td class="td02">
+						    <select name="CacheMode" id="CacheMode" class="inp02">
+                                <option value="0" style="background-color:red;color:Black">*禁用缓存模块</option>
+                                <option value="1" style="background-color:Yellow;color:Black">应用缓存时间设置的资源(图片)缓存</option>
+                                <option value="2" style="background-color:Green;color:White">永久缓存资源(图片)方式</option>
+                            </select>
+						  </td>
+						</tr>
+						  </tbody>
+						 </table>
+						</fieldset>
+					</td>
+				</tr>
+              </tbody>
+            </table>
+            <div class="ichFootIm">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="listBIfoot">
+                    <tr>
+                        <td width="20%"><div class="Bot"><a href="javascript:void(0);" id="btn_Save" title="保存">保&nbsp;&nbsp;&nbsp;&nbsp;存</a></div></td>	
+                        <td width="20%"><div class="Bot" id="Div1" style="color:#FF0000; text-align:center; font-size:12px;"></div></td>
+                        <td width="20%"><div class="Bot"><a href="javascript:void(0);" id="btn_Reset" title="重置">重&nbsp;&nbsp;&nbsp;&nbsp;置</a></div></td>
+                        <td width="40%"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>				
+  	</div>  
+</div>
+</form>
+</body>
+</html>

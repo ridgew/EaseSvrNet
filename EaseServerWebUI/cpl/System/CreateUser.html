@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <title>添加新用户</title>
+    <style type="text/css" media="all">
+        @import url(../css/wimpCommon.css);
+        @import url(../css/chChannel.css);
+        @import url(../css/chRight.css);
+    </style>
+
+    <script type="text/javascript" src="../js/jquery.js"></script>
+
+    <script type="text/javascript" src="../js/System/CreateUser.js"></script>
+
+</head>
+<body style="background-color: #fafafa">
+    <div class="rightBox">
+        <div class="rTitle1" id="row1">
+            <h2 class="rightT1">
+                填写用户基本信息：</h2>
+        </div>
+        <div class="rightText" id="row3">
+            <table border="0" cellspacing="1" class="listIB">
+                <tbody class="tb1">
+                    <tr>
+                        <th class="th03" style="width: 20%">
+                            用户名：
+                        </th>
+                        <th class="th02">
+                            <input type="text" class="inp02" id="txtUserName" maxlength="20" />
+                        </th>
+                        <th class="th05">
+                            用户名由3-20个英文字符或数字组成(第一个字符为字母)
+                        </th>
+                    </tr>
+                    <tr>
+                        <td class="td01">
+                            密码：
+                        </td>
+                        <td>
+                            <input id="txtPassword" class="inp02" maxlength="20" type="password" />
+                        </td>
+                        <td class="td02">
+                            输入密码
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td01">
+                            重复密码：
+                        </td>
+                        <td>
+                            <input id="txtRePassword" class="inp02" maxlength="20" type="password" />
+                        </td>
+                        <td class="td02">
+                            重复输入密码以确认两次输入有效
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td01">
+                            真实姓名：
+                        </td>
+                        <td>
+                            <input id="txtRealName" class="inp02" maxlength="20" type="text" />
+                        </td>
+                        <td class="td02">
+                            真实姓名
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td01">
+                            电子邮箱：
+                        </td>
+                        <td>
+                            <input id="txtEmail" class="inp02" maxlength="50" type="text" />
+                        </td>
+                        <td class="td02">
+                            电子邮箱内容
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td01">
+                            移动电话：
+                        </td>
+                        <td>
+                            <input id="txtMobile" class="inp02" maxlength="16" type="text" />
+                        </td>
+                        <td class="td02">
+                            联系方式
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td01">
+                            是否审核通过：
+                        </td>
+                        <td>
+                            <input value="0" name="chkbxApproved" id="chkbxApproved_0" type="radio" /><label
+                                for="chkbxApproved_0">未审核</label>
+                            <input value="1" name="chkbxApproved" id="chkbxApproved_1" checked="checked" type="radio" /><label
+                                for="chkbxApproved_1">已审核</label>
+                        </td>
+                        <td class="td02">
+                            未通过审核的用户将无法登陆本系统
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td01">
+                            是否锁定：
+                        </td>
+                        <td>
+                            <input value="0" name="chkbxLockedOut" id="chkbxLockedOut_0" checked="checked" type="radio" /><label
+                                for="chkbxLockedOut_0">未锁定</label>
+                            <input value="1" name="chkbxLockedOut" id="chkbxLockedOut_1" type="radio" /><label
+                                for="chkbxLockedOut_1">已锁定</label>
+                        </td>
+                        <td class="td02">
+                            被锁定的用户在锁定到期时间(再加30分钟)之前无法登录本系统
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td01">
+                            锁定到期时间：
+                        </td>
+                        <td>
+                            <input id="txtLastLockedOutDate" class="inp02" maxlength="20" type="text" />
+                        </td>
+                        <td class="td02">
+                            账户锁定到期时间，格式：2009-09-09 09:00:00
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td01">
+                            所属角色：
+                        </td>
+                        <td colspan="2" id="roleList">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td01">
+                            备注：
+                        </td>
+                        <td colspan="2">
+                            <textarea id="txtComment" rows="4" style="width: 210px; border: 1px solid #B5B8C8;"></textarea>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="ichFootIm">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="listBIfoot"
+                    style="padding-left: 96px">
+                    <tr style="height: 18px">
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="Bot">
+                                <a id="aSave" style="cursor: pointer" title="保存">保&nbsp;&nbsp;&nbsp;&nbsp;存</a></div>
+                        </td>
+                        <td>
+                            <div class="Bot">
+                                <a id="aReset" style="cursor: pointer" title="重置">重&nbsp;&nbsp;&nbsp;&nbsp;置</a></div>
+                        </td>
+                    </tr>
+                    <tr style="height: 18px">
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

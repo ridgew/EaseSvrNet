@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>接入服务器 - 缓存清空</title>
+<style type="text/css" media="all">
+    @import url(../css/wimpCommon.css);
+	@import url(../css/chChannel.css);
+	@import url(../css/chRight.css);
+	.td01 { width:20%;}
+	.td02 { width:80%;}
+	#ajaxResponse { background-color:#f6f6f6; padding:5px 5px 5px 5px; margin:5px;}
+	.inp02 { width:80%; text-align:left;background-image:url(../images/ch_ridi_textbg.gif); background-repeat:repeat-x;background-position:top left;background-attachment:scroll; background-color:Transparent; border:solid 1px #B5B8C8; padding-top:1px;padding-bottom:1px;}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" language="javascript">
+    var _sid = jQuery.QueryString().sid;
+    $(function() {
+        $('#SERVICE_ID').val(_sid);
+        $('#btn_Save').click(function() {
+            var rootURL = "/api/clearcache.ashx";
+            var action = $('#c_op').val();
+            if (action != "") {
+                var idx = action.indexOf('=');
+                if (idx == -1) {
+                    rootURL += "?" + action + "=" + $('#SERVICE_ID').val();
+                }
+                else {
+                    rootURL += "?" + action;
+                }
+            }
+
+            $('#row2').html(" 清除缓存地址为：" + rootURL);
+            $.get(rootURL, function(data) {
+                $('#ajaxResponse').html(data.replace('\n', '<br/>'));
+            });
+        });
+
+    })
+</script>
+</head>
+<body>
+<div class="rightBox">
+	<div class="rTitle1"><h2 class="rightT1" id="Navi_Txt">清除接入服务器相关缓存</h2></div>
+	<div class="rTitle2" id="row2">
+		<div class="rTliner"></div>
+		<div class="rTBotr"></div>
+	</div>
+	
+	<div class="rightText" id="row3"></div>
+	
+	<div id="ich">
+  		<div class="ichText">	    
+            <table border="0" cellspacing="1" class="listIch">          
+              <tbody>
+                <tr>
+                  <td class="td01">业务编号/键值：</td>
+                  <td class="td02">
+                    <input id="SERVICE_ID" value="0" class="inp02" type="text" /><span style="color:#ff0000">*</span>
+                  </td>
+                </tr>
+                 <tr>
+                  <td class="td01">操作类型：</td>
+                  <td class="td02">
+                    <select id="c_op" class="inp02">
+                        <option value="sid" selected>特定业务(设置上面非0参数)</option>
+                        <option value="ckey">*自定义键值(上面填写完整键值字符串)</option>
+                        <option value="ckey=CacheTimeSetting">*所有业务缓存配置数据</option>
+                        <option value="ckey=VirtualDeviceList">*所有虚拟设备数据</option>
+						<option value="">★清除全部缓存</option>
+                    </select>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="ichFootIm">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="listBIfoot">
+                    <tr>
+                        <td width="60%"><div class="Bot"><a href="javascript:void(0);" id="btn_Save" title="执行">执&nbsp;&nbsp;&nbsp;&nbsp;行</a></div></td>	
+                        <td width="40%"><div class="Bot" id="respText" style="color:#FF0000; text-align:center; font-size:12px;"></div></td>
+                    </tr>
+                </table>
+            </div>
+        </div>	
+        <div id="ajaxResponse"></div>			
+  	</div>  
+</div>
+</body>
+</html>

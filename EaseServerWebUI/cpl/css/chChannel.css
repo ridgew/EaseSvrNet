@@ -1,0 +1,58 @@
+@charset "utf-8";
+/* CSS Document */
+/*
+====================================================================
+基于xhtml 1.0:基本共用样式表    
+设计时间:2008-08    
+设计人:苹果梨梨 LIKE    
+---- EASE 管理平台----
+====================================================================
+*/
+/*框架结构
+----------------------------------------------------------------------------------*/
+#content{ margin-left:0;height:504px;background:#DFE8F6;}
+#left{ float:left; display:inline; border:2px solid #99BBE8; width:200px; height:500px; background:#FFF url(../images/ch_right_bg04.gif) repeat-x left bottom} 
+#right{border:2px solid #99BBE8; margin-left:209px;height:500px; background:#FFF url(../images/ch_right_bg04.gif) repeat-x left bottom}
+#line{ float:left;display:inline; width:5px; height:100%;}
+.lineico a{ margin-top:240px; height:35px; width:5px; background:url(../images/ch_line_ico.gif) no-repeat left top;display:block; }
+.lineico a:hover{background:url(../images/ch_line_ico1.gif) no-repeat left top; }
+
+/*左边框架
+----------------------------------------------------------------------------------*/
+.leftTop{ background:#D9E7F8; border-bottom:1px solid #99BBE8; height:25px; line-height:25px; padding:0 5px}
+.leftTop img{ margin-left:5px;}
+#left span{ float:right; width:15px; height:15px; margin:5px 0 0 3px;  cursor:pointer}
+#left span.sp01{ background:url(../images/ch_left_ico1.gif) no-repeat left top}
+#left span.sp02{ background:url(../images/ch_left_ico2.gif) no-repeat left top}
+#left span.sp03{ background:url(../images/ch_left_ico3.gif) no-repeat left top}
+.leftCon{ margin-left:0; height:450px; width:200px; overflow:auto}
+.leftText{ margin-left:0; line-height:25px; padding:0 5px}
+
+/*右边框架
+----------------------------------------------------------------------------------*/
+.rightTop{ height:27px; background:url(../images/ch_right_bg01.gif) repeat-x left top}
+.rightTop ul{ margin-left:0}
+.rightTop ul li{ float:left;}
+/*按钮效果--------------*/
+.rightTop ul li.liOver{float:left;position:relative}
+.rightTop ul li.liOver .out{background:url(../images/ch_right_nav_overL.gif) no-repeat left top; margin-top:2px;margin-left:2px;}
+.rightTop ul li.liOver .out .in{background:url(../images/ch_right_nav_overR.gif) no-repeat right top;line-height:23px; color:#3168B1;padding:0 8px 0 8px;}
+.rightTop ul li.liOver .out .in a{ color:#3168B1}
+.rightTop ul li.liOver .out .in02{background:url(../images/ch_right_nav_overR.gif) no-repeat right top;line-height:23px; color:#3168B1;padding:0 20px 0 8px;}
+.rightTop ul li.liOver .out .in02 a{ color:#3168B1}
+
+.rightTop ul li.liOver .out .in a:hover{ text-decoration:none}
+.rightTop ul li.liOver a.close{ background:url(../images/ch_right_nav_x.gif) no-repeat right top;cursor:pointer;display:block;height:11px;width:11px; position:absolute;right:3px;
+top:5px;}
+
+.rightTop ul li.liActive{float:left;position:relative}
+.rightTop ul li.liActive .out{background:url(../images/ch_right_nav_actL.gif) no-repeat left top; margin-top:2px; margin-left:2px; }
+.rightTop ul li.liActive .out .in{ background:url(../images/ch_right_nav_actR.gif) no-repeat right top; line-height:23px;  color:#333; padding:0 8px 0 8px; font-weight:bold;}
+.rightTop ul li.liActive .out .in a{ color:#333;font-weight:bold}
+.rightTop ul li.liActive .out .in02{background:url(../images/ch_right_nav_actR.gif) no-repeat right top; line-height:23px;  color:#333; padding:0 20px 0 8px; font-weight:bold;}
+.rightTop ul li.liActive .out .in02 a{ color:#333;font-weight:bold}
+.rightTop ul li.liActive .out .in a:hover{ text-decoration:none}
+
+.rightTop ul li.liActive a.close{background:url(../images/ch_right_nav_x.gif) no-repeat right top;cursor:pointer;display:block;height:11px;width:11px;position:absolute;right:3px;
+top:5px;}
+

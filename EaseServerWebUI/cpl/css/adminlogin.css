@@ -1,0 +1,42 @@
+/*
+====================================================================
+基于xhtml 1.0:登录页面样式表   
+设计时间:2008-08-20     
+设计人:苹果梨梨 LIKE    
+----wap系统----
+====================================================================
+*/
+
+/*初始值
+
+
+----------------------------------------------------------------------------------*/
+body						{margin:0;padding:0;background: url(../images/ad_bg04.gif) repeat-x center top #FFF;font-size:12px;
+							font-family:"Lucida Grande", Verdana, Lucida, Arial, Helvetica, "宋体",sans-serif;color:#333}
+div,form,p,ul,ol,li,dl,dt,dd,
+h1,h2,h3,h4,h5,h6			{border:0;list-style:none;margin:0;padding:0;text-align:left;}
+form, input, select, textarea{ font-size:12px}
+a							{color:#333;}
+a:link,a:visited,a:active	{text-decoration:none;}
+a:hover 					{text-decoration:underline;}
+a img 						{border:0;cursor:pointer;}
+img							{vertical-align:middle; }
+.clear {CLEAR: both; FONT-SIZE: 0px; VISIBILITY: hidden; WIDTH: 1px; HEIGHT: 1px}
+
+
+/*登录
+---------------------------------*/
+#adm{  position:relative;clear:both;margin:30px auto 0 auto; width:911px; height:544px; background:url(../images/adm.jpg) no-repeat center top;}
+.box{ clear:both; padding:212px 0 0 520px;  margin-left:0;height:205px; color:#fff; font-weight:bold}
+.box p{ margin:15px 0;}
+.box p *{ vertical-align:middle}
+.box p.p01{}
+.box input.inp01{ width:152px; height:19px; line-height:20px; border: solid 1px #68E1F5; background: url(../images/ad_bg06.gif) no-repeat left top #fff;}
+.box input.inp02{ width:84px; height:19px;line-height:20px; border: solid 1px #68E1F5; background:url(../images/ad_bg06.gif) no-repeat left top #fff}
+.box input.inp03{ margin-top:10px; margin-left:80px}
+.copyRight{ clear:both;margin:0 auto; width:911px;height:30px; line-height:30px; color:#0152A3; text-align:right;}
+.tip{ position:absolute; left:520px; top:160px; width:213px; height:30px;line-height:30px;  border: solid 1px #68E1F5; background:#CAECF9}
+.loading{ float:left; width:16px; height:16px; margin:5px 0 7px 7px; }
+.loading img{ float:left}
+.txt{ margin-left:30px;}
+.txt01{ margin-left:30px; color:#FF0000}

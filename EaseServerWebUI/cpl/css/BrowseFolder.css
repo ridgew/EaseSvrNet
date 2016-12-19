@@ -1,0 +1,415 @@
+﻿body
+{
+	background-color: White;
+	overflow: hidden;
+}
+body,table,tr,td{
+	font-size: 12px;
+	font-family: 宋体, Arial, Helvetica, sans-serif;
+}
+body,form,a,img{
+	margin: 0px;
+	padding: 0px;
+	border-width: 0px;
+}
+.btnPointer {
+	cursor:pointer;
+	width:22px;
+}
+
+#loading-mask
+{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 20000;
+	background-color: White;
+	/*filter:alpha(opacity=70);  IE */
+    /*opacity:0.70;  Safari, Opera and Mozilla */
+}
+#loading
+{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	padding: 2px;
+	z-index: 20001;
+	height: auto;
+	background-color: #C9DEEC;
+}
+#loading a
+{
+	color: #225588;
+}
+#loading img{
+	margin-right:8px;float:left;vertical-align:middle;
+}
+#loading .loading-indicator
+{
+	color: #444444;
+	font-weight: bold;
+	font-size: 14px;
+	padding: 10px;
+	margin: 0px;
+	background-color: #F8FDFF;
+}
+#loading-msg
+{
+	font-size: 12px;
+	font-weight: normal;
+	font-style: normal;
+}
+
+/*
+	Toolbar
+*/
+
+.TB_ToolbarSet
+{
+    cursor: default;
+    background-color: #F8FDFF;
+}
+
+.TB_ToolbarSet
+{
+    border-top: #F8FDFF 1px outset;
+    border-bottom: #F8FDFF 1px outset;
+}
+
+.TB_ToolbarSet TD
+{
+    font-size: 12px;
+    font-family: 'Microsoft Sans Serif' , Tahoma, Arial, Verdana, Sans-Serif;
+}
+
+.TB_Toolbar
+{
+    display: inline-table;	/* inline = Opera jumping buttons bug */
+}
+
+.TB_Separator
+{
+    width: 1px;
+    height: 16px;
+    margin: 2px;
+    background-color: #999966;
+}
+
+.TB_Start
+{
+    background-image: url(../images/toolbar/start.gif);
+    margin: 2px;
+    width: 3px;
+    background-repeat: no-repeat;
+    height: 16px;
+}
+
+.TB_End
+{
+    display: none;
+}
+
+.TB_SideBorder
+{
+    background-color: #696969;
+}
+
+
+.TB_Break
+{
+    height: 24px; /* IE needs the height to be set, otherwise no break */
+}
+
+/*
+	Toolbar Button
+*/
+
+.TB_Button_On, .TB_Button_Off, .TB_Button_On_Over, .TB_Button_Off_Over, .TB_Button_Disabled
+{
+    border: #F8FDFF 1px solid; /* This is the default border */
+    height: 22px; /* The height is necessary, otherwise IE will not apply the alpha */
+}
+
+.TB_Button_On
+{
+    border: #316ac5 1px solid;
+    background-color: #c1d2ee;
+}
+
+.TB_Button_On_Over, .TB_Button_Off_Over
+{
+    border: #316ac5 1px solid;
+    background-color: #dff1ff;
+}
+
+.TB_Button_Off
+{
+    filter: alpha(opacity=70); /* IE */
+    opacity: 0.70; /* Safari, Opera and Mozilla */
+}
+
+.TB_Button_Disabled
+{
+    filter: gray() alpha(opacity=30); /* IE */
+    opacity: 0.30; /* Safari, Opera and Mozilla */
+}
+
+.TB_Button_Padding
+{
+    visibility: hidden;
+    width: 3px;
+    height: 22px;
+}
+
+.TB_Button_Image
+{
+    overflow: hidden;
+    width: 16px;
+    height: 16px;
+    margin: 3px;
+    background-repeat: no-repeat;
+}
+
+.TB_Button_Image img
+{
+    position: relative;
+}
+
+.TB_Button_Off .TB_Button_Text
+{
+   	background-color: #F8FDFF;  /* Needed because of a bug on Clear Type */
+}
+
+.TB_ConnectionLine
+{
+    background-color: #ffffff;
+    height: 1px;
+    margin-left: 1px;   /* ltr */
+    margin-right: 1px;  /* rtl */
+}
+
+.TB_Text
+{
+	height: 22px;
+}
+
+.TB_Button_Off .TB_Text
+{
+   	background-color: #F8FDFF ;  /* Needed because of a bug on ClearType */
+}
+
+.TB_Button_On_Over .TB_Text
+{
+   	background-color: #dff1ff ;  /* Needed because of a bug on ClearType */
+}
+
+
+.fileList
+{
+	background: #E4F3FC none repeat scroll 0% 0%;
+}
+.fileList ul
+{
+	padding: 0px;
+	margin: 0px;
+}
+.fileList li
+{
+	height: 22px;
+	margin: 1px;
+	list-style-type: none;
+	list-style-image: none;
+	list-style-position: outside;
+	line-height: 20px;
+	vertical-align: middle;
+}
+.fileList li.over {
+	background-color: #DAE9F5;
+}
+.fileList li.out {
+	background-color: #F8FDFF;
+}
+.fileList li a
+{
+	vertical-align: middle;
+	line-height: 20px;
+	height: 20px;
+	text-decoration: none;
+	color: #395575;
+	margin: 0px 3px 0px 3px;
+}
+
+a.file{}
+.fileList li a:hover,a.file:hover
+{
+	text-decoration: underline;
+	color: #FF0000;
+}
+#pnlPreviewPicture
+{
+	position: absolute;
+	background-color: #FFFFE1;
+	border: 1px double #000000;
+	color: #000000;
+	padding: 5px;
+	display: none;
+	width: 200px;
+	height: 200px;
+}
+
+#xDialog,#pnlFlashUpload
+{
+	position: absolute; 
+	top: 50%; 
+	left: 50%; 
+	text-align:center;
+	padding:5px;
+	overflow: auto;	/* FF bug : cursor disappears */
+	z-index: 20002;
+}
+
+.DialogInner
+{
+	padding-top:25px;
+	padding-bottom:30px;
+	padding-left:50px;
+	padding-right:50px;
+}
+
+#xDialogField
+{
+	margin-top:5px;
+}
+
+#xDialogButtons
+{
+	margin-top:15px;
+}
+.DarkBackground{
+	background-color:#C9DEEC;
+}
+.BackColor {
+	background-color:#F8FDFF;
+}
+
+
+/* flash upload style*/
+
+fieldset{
+	margin: 10px 0px;
+	border:solid 1px #D9E4FF;
+	text-align:left;
+	width:375px;
+}
+fieldset legend{
+	color: #73b304;
+}
+.FileQueueList {
+	width: 375px;
+	height:130px;
+	overflow:auto;
+	overflow-x:hidden;
+}
+.progressWrapper {
+	width: 357px;
+	overflow: hidden;
+	margin:auto;
+}
+
+.progressContainer {
+	margin: 5px;
+	padding: 4px;
+	border: solid 1px #E8E8E8;
+	background-color: #F7F7F7;
+	overflow: hidden;
+}
+/* Message */
+.message {
+	margin: 1em 0;
+	padding: 10px 20px;
+	border: solid 1px #FFDD99;
+	background-color: #FFFFCC;
+	overflow: hidden;
+}
+/* Error */
+.red {
+	border: solid 1px #B50000;
+	background-color: #FFEBEB;
+}
+
+/* Current */
+.green {
+	border: solid 1px #DDF0DD;
+	background-color: #EBFFEB;
+}
+
+/* Complete */
+.blue {
+	border: solid 1px #CEE2F2;
+	background-color: #F0F5FF;
+}
+
+.progressName {
+	font-size: 8pt;
+	font-weight: 700;
+	color: #555;
+	width: 323px;
+	height: 14px;
+	text-align: left;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.progressBarInProgress,
+.progressBarComplete,
+.progressBarError {
+	font-size: 0;
+	width: 0%;
+	height: 2px;
+	background-color: blue;
+	margin-top: 2px;
+}
+
+.progressBarComplete {
+	width: 100%;
+	background-color: green;
+	visibility: hidden;
+}
+
+.progressBarError {
+	width: 100%;
+	background-color: red;
+	visibility: hidden;
+}
+
+.progressBarStatus {
+	margin-top: 2px;
+	width: 337px;
+	font-size: 7pt;
+	font-family: Arial;
+	text-align: left;
+	white-space: nowrap;
+}
+
+a.progressCancel {
+	font-size: 0;
+	display: block;
+	height: 14px;
+	width: 14px;
+	background-image: url(../images/toolbar/cancelbutton.gif);
+	background-repeat: no-repeat;
+	background-position: -14px 0px;
+	float: right;
+}
+
+a.progressCancel:hover {
+	background-position: 0px 0px;
+}
+
+
+/* -- SWFUpload Object Styles ------------------------------- */
+.swfupload {
+	vertical-align: top;
+}

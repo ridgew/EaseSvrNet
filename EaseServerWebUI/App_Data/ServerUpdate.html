@@ -1,0 +1,147 @@
+﻿<script type="text/javascript">
+    var emptyGuid = "00000000-0000-0000-0000-000000000000";
+    function newGuid() {
+        return emptyGuid.replace(/0+/g, function(o) { return Math.random().toString(16).substr(2, o.length) })
+    }
+    function newGuidDec() {
+        return emptyGuid.replace(/0+/g, function(o) { return Math.random().toString().substr(2, o.length) })
+    }
+
+    function doUpdatePackage(frm) {
+        if (window.confirm("确定开始更新服务器文件吗，请确保更新项填写正确！")) {
+            $('#disWaitting').hide();
+            $("#updateGuid").val(newGuid());
+            $("#doUpdate").attr({ value: "正在进行更新处理等稍等...", disabled: "disabled" });
+            pingContainer.setResult = false;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    //至少保证1秒以上
+    function callUpdateResultAfter(n) {
+        if (n / 1000 > 1) {
+            showWaitStop(n / 1000);
+            window.setTimeout("pingResult()", n);
+            $('#disWaitting').show();
+        }
+        else {
+            if (n / 1000 < 1) {
+                $("#doUpdate").attr({ value: '*更新失败', disabled: false });
+            }
+            else {
+                $("#doUpdate").attr({ value: '*手工查看更新结果', disabled: false });
+                pingResult();
+            }
+        }
+    }
+
+    var waitContainer = { total: 0, timer: null };
+    function showWaitStop(n) {
+        waitContainer.total = n;
+        waitContainer.timer = window.setInterval("updateWaiting()", 1000);
+    }
+
+    function updateWaiting() {
+        waitContainer.total--;
+        if (waitContainer.total >= 0) {
+            $('#doUpdate').val(waitContainer.total + '秒后应用更新...');
+        }
+        if (waitContainer.total <= 0) {
+            window.clearInterval(waitContainer.timer);
+        }
+    }
+
+    var pingContainer = { total: 0, timer: null, setResult:false };
+    function updatePing(remote) {
+        if (remote)
+            viewResult(true);
+        $('#disWaitting').val('取消等待, (已等待' + pingContainer.total + '秒)');
+        pingContainer.total++;
+    }
+
+
+    function pingResult() {
+        if ($('#svrNeedStop').length && $('#svrNeedStop')[0].checked) {
+            pingContainer.timer = window.setInterval("updatePing(true)", 1000);
+        }
+        else {
+            pingContainer.timer = window.setInterval("updatePing()", 1000);
+        }
+    }
+
+    function viewResult(isPing) {
+        $.ajax({
+            type: "GET", url: "ServerUpdate.ashx?uid=" + $("#updateGuid").val() + "&rnd=" + Math.random(),
+            error: function(xmlObj, Status) {
+                if (!pingContainer.setResult)
+                    $('#reportPanel').html("结果不可用!(" + xmlObj.status + ")");
+            },
+            success: function(data) {
+                if (!pingContainer.setResult)
+                    $('#reportPanel').html(data);
+                if (isPing) {
+                    if (pingContainer.timer != null) {
+                        window.clearInterval(pingContainer.timer);
+                        pingContainer.total = 0;
+                        pingContainer.setResult = true;
+                    }
+                    $("#doUpdate").attr({ value: '*开始更新', disabled: false });
+                }
+            }
+        });
+    }
+
+    function clearPing() {
+        if (waitContainer.timer != null) {
+            window.clearInterval(waitContainer.timer);
+            waitContainer.total = 0;
+        }
+        if (pingContainer.timer != null) {
+            window.clearInterval(pingContainer.timer);
+            pingContainer.total = 0;
+        }
+        $('#disWaitting').val('取消等待');
+        $("#doUpdate").attr({ value: '*开始更新', disabled: false });
+        viewResult();
+    }
+</script>
+<br/><br/>
+<strong><font color="red">提醒：本程序跨进程通信，处理时间稍长，处理过程中请勿刷新本框架页面。</font></strong>
+<form enctype="multipart/form-data" method="post" action="ServerUpdate.ashx" onsubmit="return doUpdatePackage(this);" id="frmUpload" target="procPage">
+选择备份方式：
+<select name="pkgType" id="pkgType">
+<option value="none">不备份仅重启服务</option>
+<optgroup label="更新文件备份">
+	<option value="pzip" selected="selected">备份为ZIP包</option>
+	<option value="pdir">按结构复制到备份目录</option>
+</optgroup>
+<optgroup label="完整备份">
+	<option value="fzip">压缩为ZIP包</option>
+	<option value="fdir">按结构复制到备份目录</option>
+</optgroup>
+</select>
+<br/><br />
+<font color="green"><u>更新目录根地址</u>：</font><input type="text" name="updateBaseDir" id="updateBaseDir" value="/" size="75" /><br/>
+<font color="green"><u>服务更新控制</u>：</font><input type="checkbox" name="svrNeedStop" id="svrNeedStop" value="1" checked="checked" /><label for="svrNeedStop">更新时先停止服务，完成后重启</label> 
+<input type="checkbox" name="svrMonitorUID" id="svrMonitorUID" value="1" checked="checked" /><label for="svrMonitorUID">如果更新文件不存在则取消更新</label>
+<br/>
+备份文件存储目录：<input type="text" name="backDirPath" id="backDirPath" value="d:\EaseSvrBak" size="75" />(注:不得设置在上述两个目录内)<br/>
+不备份的目录名称：<input type="text" name="ignoreDirNames" id="ignoreDirNames" value="Logs *.rar *.zip @* [\w-]{36}.html" size="75" />
+<br/><br />
+<div>SQL脚 本：<input type="file" size="55" name="updateSqlPkg" /></div>
+<div>ZIP更新包：<input type="file" size="55" name="updatePkg" /></div>
+<div><font color="red">ZIP备份包：</font><input type="text" size="55" name="bakPkgPath" id="bakPkgPath" />(上传或从备份包还原)</div>
+备份描述：<br /><textarea name="updateComment" rows="3" cols="65"></textarea>
+<table style="background-color:#000000;" border="0" cellspacing="1" cellpadding="5" width="80%" height="30">
+<tr><td bgcolor="#FAEDB4" valign="top">
+<iframe src="about:blank" hspace="0" vspace="0" border="0" width="0" height="0" name="procPage" id="procPage" style="display:none"></iframe>
+<div id="reportPanel">更新状态...</div>
+</td>
+</tr>
+</table><br/>
+<input type="hidden" name="updateGuid" id="updateGuid" />
+&nbsp;&nbsp; <input type="submit" value="开始更新"  id="doUpdate"/> <input type="button" value="取消等待" id="disWaitting" style="display:none" onclick="javascript:clearPing();" />
+</form>

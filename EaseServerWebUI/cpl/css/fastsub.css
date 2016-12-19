@@ -1,0 +1,57 @@
+/* CSS Document */
+/*
+====================================================================
+基于xhtml 1.0:基本共用样式表    
+设计时间:2008-08    
+设计人:苹果梨梨 LIKE    
+----WAP综合管理平台-快速登录----
+====================================================================
+*/
+/*初始值
+
+----------------------------------------------------------------------------------*/
+html,body						{margin:0;padding:0;background:#FFF; height:100%;font-size:12px;
+							font-family:"Lucida Grande", Verdana, Lucida, Arial, Helvetica, "宋体",sans-serif;color:#333; text-align:center;
+							SCROLLBAR-FACE-COLOR: #E8F1F6; 
+							SCROLLBAR-SHADOW-COLOR: #AEBEC8; 
+							SCROLLBAR-HIGHLIGHT-COLOR: #FFF; 
+							SCROLLBAR-3DLIGHT-COLOR: #AEBEC8; 
+							SCROLLBAR-DARKSHADOW-COLOR: #FFF; 
+							SCROLLBAR-TRACK-COLOR:#F0F4F6; 
+							SCROLLBAR-ARROW-COLOR: #6E849A }
+div,form,p,ul,ol,li,dl,dt,dd,
+h1,h2,h3,h4,h5,h6			{border:0;list-style:none;margin:0;padding:0;text-align:left;}
+form, input, select, textarea { font-size:12px}
+a							{color:#333;}
+a:link,a:visited,a:active	{text-decoration:none;}
+a:hover 					{color:#333;}
+a img 						{border:0;cursor:pointer;}
+img							{vertical-align:middle; }
+.clear {CLEAR: both; FONT-SIZE: 0px; VISIBILITY: hidden; WIDTH: 1px; HEIGHT: 1px}
+
+/*快速登录*/
+#fastsub{ width:800px; height:400px; margin:100px auto 0 auto; }
+.fastBox{ border:1px solid #1B6DCF; background:#C3DCF0}
+.fastBox1{ border:1px solid #FFF; height:170px; border-bottom:none; background:url(../images/fast_bg01.gif) no-repeat left top;}
+.fastBox2{ border:1px solid #FFF; height:230px; border-top:none; background:url(../images/fast_bg02.gif) no-repeat left top;}
+ul.fastList{ padding:40px 0 0 65px; height:130px;}
+ul.fastList li{ float:left; width:95px; margin-right:15px; }
+ul.fastList li a{ display:block;width:95px; height:120px; }
+ul.fastList li.li01 a{background:url(../images/fast_cio001.gif) no-repeat left top}
+ul.fastList li.li01 a:hover{background:url(../images/fast_cio0011.gif) no-repeat left top}
+ul.fastList li.li02 a{background:url(../images/fast_cio002.gif) no-repeat left top}
+ul.fastList li.li02 a:hover{background:url(../images/fast_cio0022.gif) no-repeat left top}
+ul.fastList li.li03 a{background:url(../images/fast_cio003.gif) no-repeat left top}
+ul.fastList li.li03 a:hover{background:url(../images/fast_cio0033.gif) no-repeat left top}
+ul.fastList li.li04 a{background:url(../images/fast_cio004.gif) no-repeat left top}
+ul.fastList li.li04 a:hover{background:url(../images/fast_cio0044.gif) no-repeat left top}
+ul.fastList li.li05 a{background:url(../images/fast_cio005.gif) no-repeat left top}
+ul.fastList li.li05 a:hover{background:url(../images/fast_cio0055.gif) no-repeat left top}
+ul.fastList li.li06 a{background:url(../images/fast_cio006.gif) no-repeat left top}
+ul.fastList li.li06 a:hover{background:url(../images/fast_cio0066.gif) no-repeat left top}
+ul.fastList li.li001 a{background:url(../images/fast_cio001.gif) no-repeat left top}
+ul.fastList li.li002 a{background:url(../images/fast_cio002.gif) no-repeat left top}
+ul.fastList li.li003 a{background:url(../images/fast_cio003.gif) no-repeat left top}
+ul.fastList li.li004 a{background:url(../images/fast_cio004.gif) no-repeat left top}
+ul.fastList li.li005 a{background:url(../images/fast_cio005.gif) no-repeat left top}
+ul.fastList li.li006 a{background:url(../images/fast_cio006.gif) no-repeat left top}

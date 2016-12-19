@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>EASE业务管理系统 - 手机用户管理 - 手机用户详细信息</title>
+<style type="text/css" media="all">
+    @import url(../css/chWindows.css);
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/MobileUser/MobileUserInfo.js"></script>
+</head>
+<body>
+<div id="ich" style="margin:0px; padding:0px;">
+	<div class="ichText">
+    	<table border="0" cellspacing="1" class="listIch">
+          <tbody class="tb1">
+            <tr>
+              <th class="th01" valign="middle" style="width:14%;">用户姓名：</th>
+              <th class="th02" valign="middle" style="width:36%;" id="USER_NAME"></th>
+              <th class="th01" valign="middle" style="width:14%;">手机号码：</th>
+              <th class="th02" valign="middle" style="width:36%;" id="MSID"></th>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td class="td01" valign="middle">编号：</td>
+              <td valign="middle" class="td02" id="SOFTWARE_ID"></td>
+              <td class="td01" valign="middle">应用编号：</td>
+              <td valign="middle" class="td02" id="SERVICE_ID"></td>
+            </tr>
+            <tr>
+              <td class="td01" valign="middle">终端编号：</td>
+              <td valign="middle" class="td02" id="DEVICE_ID"></td>
+              <td class="td01" valign="middle">主程序版本：</td>
+              <td valign="middle" class="td02" id="CLIENT_VERSION"></td>
+            </tr>
+            <tr>
+              <td class="td01" valign="middle">首次访问：</td>
+              <td valign="middle" class="td02" id="FIRST_VISIT_TIME"></td>
+              <td class="td01" valign="middle">机身识别码：</td>
+              <td valign="middle" class="td02" id="IMSI"></td>
+            </tr>
+            <tr>
+              <td class="td01" valign="middle">性别：</td>
+              <td valign="middle" class="td02" id="USER_SEX"></td>
+              <td class="td01" valign="middle">年龄：</td>
+              <td valign="middle" class="td02" id="USER_AGE"></td>
+            </tr>
+            <tr>
+              <td class="td01" valign="middle">证件号码：</td>
+              <td valign="middle" class="td02" id="USER_ID_CARD"></td>
+              <td class="td01" valign="middle">地址：</td>
+              <td valign="middle" class="td02" id="USER_ADDR"></td>
+            </tr>
+            <tr>
+              <td class="td01" valign="middle">IP地址：</td>
+              <td valign="middle" class="td02" id="REMOTE_IP" colspan="3"></td>
+            </tr>
+            <tr>
+              <td class="td01" valign="middle">UserAgent：</td>
+              <td valign="middle" class="td02" id="UserAgent" colspan="3"></td>
+            </tr>
+          </tbody>
+        </table>
+		<div class="ichFootICH">
+			<input name="btn_Close" type="button" id="btn_Close"  onmouseover="this.className = 'intb';" onmouseout="this.className='outb';" value="关 闭"/>
+		</div>
+	</div>
+</div>
+</body>
+</html>

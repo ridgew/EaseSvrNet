@@ -1,0 +1,40 @@
+/*
+====================================================================
+基于xhtml 1.0:登录页面样式表   
+设计时间:2008-08-20     
+设计人:苹果梨梨 LIKE    
+----广告管理----
+====================================================================
+*/
+
+/*初始值
+
+----------------------------------------------------------------------------------*/
+body						{margin:0;padding:0;background:#FFF;font-size:12px;
+							font-family:"Lucida Grande", Verdana, Lucida, Arial, Helvetica, "宋体",sans-serif;color:#333}
+div,form,p,ul,ol,li,dl,dt,dd,
+h1,h2,h3,h4,h5,h6			{border:0;list-style:none;margin:0;padding:0;text-align:left;}
+form, input, select, textarea{ font-size:12px}
+a							{color:#333;}
+a:link,a:visited,a:active	{text-decoration:none;}
+a:hover 					{text-decoration:underline;}
+a img 						{border:0;cursor:pointer;}
+img							{vertical-align:middle; }
+.clear {CLEAR: both; FONT-SIZE: 0px; VISIBILITY: hidden; WIDTH: 1px; HEIGHT: 1px}
+
+/*登录-
+----------------------------------------------------------------------------------*/
+#admin{ position: relative; width:500px; height:330px; margin:40px auto 0 auto}
+#topBox{ margin-left:0; height:70px; background:url(../images/ad_top.gif) no-repeat left top}
+#topBox img{ margin:12px auto auto 40px;}
+#main{ margin-left:0; height:230px; background:url(../images/ad_bg.gif) repeat-y left top}
+#box{ float:left; display:inline; margin:20px auto auto 35px; width:210px; height:140px;}
+#box p{ margin:15px 0;}
+#box p *{ vertical-align:middle}
+#box p.p01{}
+#box input.inp01{ width:150px; height:17px; border: solid 1px #4F626A; background:#D4E9EE;}
+#box input.inp02{ width:82px; height:17px; border: solid 1px #4F626A; background:#D4E9EE}
+#box input.inp03{ margin-top:10px; margin-left:80px}
+#bottom{ margin-left:0; height:30px; background:#6A9ED1; color:#fff; line-height:30px; text-align:center}
+#pic01{ position:absolute; left:2px; top:252px; width:93px; height:60px;}
+#pic02{position:absolute;right:0px; top:45px; width:255px; height:250px;}

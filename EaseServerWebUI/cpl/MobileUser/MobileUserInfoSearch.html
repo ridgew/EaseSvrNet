@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>EASE业务管理系统 - 手机用户管理 - 手机用户搜索</title>
+<style type="text/css" media="all">
+    @import url(../css/chWindows.css);
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/MobileUser/MobileUserInfoSearch.js"></script>
+</head>
+<body>
+<div id="ich" style="margin:0px; padding:0px;">
+	<div class="ichText">
+    	<table border="0" cellspacing="1" class="listIch">
+          <tbody class="tb1">
+            <tr>
+              <th class="th01" valign="middle" style="width:14%;">用户姓名：</th>
+              <th class="th02" valign="middle" style="width:36%;">
+                <input class="inp02" type="text" name="USER_NAME" id="USER_NAME" maxlength="20" value="" style="width:200px;" />
+              </th>
+              <th class="th01" valign="middle" style="width:14%;">手机号码：</th>
+              <th class="th02" valign="middle" style="width:36%;">
+                <input class="inp02" type="text" name="MSID" id="MSID" maxlength="11" value="" style="width:200px;" onkeyup="javascript:top.CheckInput(this,1);" />
+              </th>
+            </tr>
+          </tbody>
+          <tbody id="Search_FieldList">
+            <tr>
+              <td class="td01" valign="middle">性别：</td>
+              <td valign="middle" class="td02">
+                <select name="USER_SEX" id="USER_SEX" class="sel01" style="width:200px;">
+                    <option value="">不限</option>
+                    <option value="0">男</option>
+                    <option value="1">女</option>
+                </select>
+              </td>
+              <td class="td01" valign="middle">年龄：</td>
+              <td valign="middle" class="td02">
+               <input class="inp02" type="text" name="USER_AGE" id="USER_AGE" value="" maxlength="2" style="width:200px;" onkeyup="javascript:top.CheckInput(this,1);" />
+              </td>
+            </tr>
+            <tr>
+              <td class="td01" valign="middle">证件号码：</td>
+              <td valign="middle" class="td02">
+                <input class="inp02" type="text" name="USER_ID_CARD" id="USER_ID_CARD" value="" maxlength="18" style="width:200px;" />
+              </td>
+              <td class="td01" valign="middle">地址：</td>
+              <td valign="middle" class="td02">
+               <input class="inp02" type="text" name="USER_ADDR" id="USER_ADDR" value="" maxlength="50" style="width:200px;" />
+              </td>
+            </tr>
+             <tr>
+              <td class="td01" valign="middle">IMSI：</td>
+              <td valign="middle" class="td02">
+                <input class="inp02" type="text" name="IMSI" id="IMSI" value="" maxlength="18" style="width:200px;" />
+              </td>
+              <td class="td01" valign="middle">IMEI：</td>
+              <td valign="middle" class="td02">
+               <input class="inp02" type="text" name="IMEI" id="IMEI" value="" maxlength="50" style="width:200px;" />
+              </td>
+            </tr>
+             <tr>
+              <td class="td01" valign="middle">远程IP：</td>
+              <td valign="middle" class="td02" colspan="3">
+                <input class="inp02" type="text" name="REMOTE_IP" id="REMOTE_IP" value="" maxlength="18" style="width:200px;" />
+              </td>
+            </tr>
+             <tr>
+              <td class="td01" valign="middle">UserAgent：</td>
+              <td valign="middle" class="td02" colspan="3">
+                <input class="inp02" type="text" name="UserAgent" id="UserAgent" value="" maxlength="18" style="width:400px;" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+		<div class="ichFootICH">
+			<input name="btn_Save" type="button" id="btn_Save" onmouseover="this.className = 'intb';" onmouseout="this.className = 'outb';" value="搜 索"/>
+			<input name="btn_Close" type="button" id="btn_Close"  onmouseover="this.className = 'intb';" onmouseout="this.className='outb';" value="关 闭"/>
+		</div>
+	</div>
+</div>
+</body>
+</html>

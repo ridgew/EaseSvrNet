@@ -1,0 +1,41 @@
+@charset "utf-8";
+/* CSS Document */
+/*
+====================================================================
+基于xhtml 1.0:基本共用样式表    
+设计时间:2008-08    
+设计人:苹果梨梨 LIKE    
+----WAP综合管理平台----
+====================================================================
+*/
+
+/*初始值
+
+----------------------------------------------------------------------------------*/
+body						{margin:0;padding:0;background:#FFF; height:100%;font-size:12px;
+							font-family:"Lucida Grande", Verdana, Lucida, Arial, Helvetica, "宋体",sans-serif;color:#333; text-align:center}
+div,form,p,ul,ol,li,dl,dt,dd,
+h1,h2,h3,h4,h5,h6			{border:0;list-style:none;margin:0;padding:0;text-align:left;}
+form, input, select, textarea { font-size:12px}
+a							{color:#333;}
+a:link,a:visited,a:active	{text-decoration:none;}
+a:hover 					{color:#333;}
+a img 						{border:0;cursor:pointer;}
+img							{vertical-align:middle; }
+.clear {CLEAR: both; FONT-SIZE: 0px; VISIBILITY: hidden; WIDTH: 1px; HEIGHT: 1px}
+
+/*框架
+----------------------------------------------------------------------------------*/
+#ridi { margin:0 auto; width:360px; padding-top:100px}
+.riditop{ height:26px; line-height:26px; color:#FFF;background:url(../images/ch_ridi_bg.gif) no-repeat left top; padding:0 10px;}
+.riditop span{ float:right; margin-top:5px; height:15px; width:15px; cursor:pointer; background:url(../images/ch_ridi_ico.gif) no-repeat left top }
+.riditext{ margin-left:0; background:#FBFEFF; padding:10px; border:2px solid #3182CE}
+.riditext p{ line-height:20px; padding:0 10px 5px 10px;}
+.riditext span{ float:left; width:100px; line-height:20px; padding-top:2px; text-align:right; display:block}
+.riditext input.inp01{ width:120px; height:15px; border:1px solid #B5B8C8; background:url(../images/ch_ridi_textbg.gif) repeat-x left right} 
+.riditext select.sel01{ width:125px;  border:1px solid #B5B8C8; background:url(../images/ch_ridi_textbg.gif) repeat-x left right}
+.ridifoot { margin-top:5px; line-height:20px; padding:10px 40px 0 40px; border-top:1px solid #D6EAFC}
+.riditext .Bot {float:left; width:60px; text-align:center; margin:0 10px}
+.riditext .Bot a { border:1px solid #90C0E8; line-height:19px;background:url(../images/ch_right_bot_bg01.gif) repeat-x left 1px;display:block;}
+.riditext .Bot a:hover{ background:url(../images/ch_right_bot_bg02.gif) repeat-x left 1px;border:1px solid #CC5E00;}
+

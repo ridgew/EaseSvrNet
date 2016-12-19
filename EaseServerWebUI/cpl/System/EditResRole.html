@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>资源分类角色管理</title>
+<style type="text/css" media="all">
+    @import url(../css/wimpCommon.css);
+	@import url(../css/chChannel.css);
+	@import url(../css/chRight.css);
+	@import url(../css/jquery.treeview.css);
+</style>  
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/jquery.treeview.js"></script>
+<script type="text/javascript" src="../js/System/EditResRole.js"></script>
+</head>
+<body>
+    <div class="rightBox">
+        <div class="rTitle1">
+            <h2 class="rightT1">
+                绑定资源到角色：</h2>
+        </div>
+        <div class="rTitle2">
+            <div class="rTliner">
+            </div>
+            <div class="rTBotr"><a id="btnsave" href="#">保存角色资源管理权限</a></div>
+            <h2 id="roleInfo" class="rightT2"></h2> 
+        </div>
+        <div class="rightText">
+            <div id="main">
+                <div id="sidetree">
+                    <ul id="root_ul">
+                        <li id="root_li">
+                            <img src="../images/tree.gif" align="center" alt="资源管理" />
+                            <span>资源管理</span><ul id="tree">
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
